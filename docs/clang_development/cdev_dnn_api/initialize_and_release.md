@@ -16,7 +16,7 @@ Create and initialize ``packedDNNHandle`` from files. The returned ``packedDNNHa
 
 **【Parameters】**
 
-- [out] ``packedDNNHandle``: Horizon DNN handle that points to multiple models.
+- [out] ``packedDNNHandle``: D-Robotics DNN handle that points to multiple models.
 - [in]  ``modelFileNames``: Path of model files.
 - [in]  ``modelFileCount``: Number of model files.
 
@@ -37,7 +37,7 @@ Create and initialize ``packedDNNHandle`` from DDR. The returned ``packedDNNHand
 
 **【Parameters】**
 
-- [out] ``packedDNNHandle``: Horizon DNN handle that points to multiple models.
+- [out] ``packedDNNHandle``: D-Robotics DNN handle that points to multiple models.
 - [in]  ``modelData``: Pointer to model data.
 - [in]  ``modelDataLengths``: Length of model data.
 - [in]  ``modelDataCount``: Number of model data.
@@ -58,7 +58,7 @@ Release the model pointed by ``packedDNNHandle``.
 
 **【Parameters】**
 
-- [in] ``packedDNNHandle``: Horizon DNN handle pointing to multiple models.
+- [in] ``packedDNNHandle``: D-Robotics DNN handle pointing to multiple models.
 
 **【Return Type】**
 

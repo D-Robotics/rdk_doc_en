@@ -4,15 +4,15 @@ sidebar_position: 1
 
 # 9.1 Introduction
 
-The Horizon Algorithm Toolchain is an algorithm solution developed based on the Horizon processor. It can help you quantize floating-point models into fixed-point models and quickly deploy self-developed algorithm models on the Horizon processor.
+The D-Robotics Algorithm Toolchain is an algorithm solution developed based on the D-Robotics processor. It can help you quantize floating-point models into fixed-point models and quickly deploy self-developed algorithm models on the D-Robotics processor.
 
-Currently, most models trained on GPUs are floating-point models, which means that the parameters are stored using the float data type. The Horizon BPU architecture processor uses INT8 as the computing precision (the general precision of processors in the industry) and can only run quantized fixed-point models. The process of converting a trained floating-point model to a fixed-point model is called quantization. Depending on whether the quantized parameters need to be adjusted, we can divide the quantization methods into Quantization Aware Training (QAT) and Post-Training Quantization (PTQ).
+Currently, most models trained on GPUs are floating-point models, which means that the parameters are stored using the float data type. The D-Robotics BPU architecture processor uses INT8 as the computing precision (the general precision of processors in the industry) and can only run quantized fixed-point models. The process of converting a trained floating-point model to a fixed-point model is called quantization. Depending on whether the quantized parameters need to be adjusted, we can divide the quantization methods into Quantization Aware Training (QAT) and Post-Training Quantization (PTQ).
 
-The Horizon Algorithm Toolchain mainly uses the Post-Training Quantization (PTQ) method, which only requires using a batch of calibration data to calibrate the trained floating-point model, converting the trained FP32 network directly into a network that performs fixed-point calculations. During this process, there is no need to train the original floating-point model, only a few hyperparameters need to be adjusted to complete the quantization process. The whole process is simple and fast and has been widely used in edge computing and cloud scenarios.
+The D-Robotics Algorithm Toolchain mainly uses the Post-Training Quantization (PTQ) method, which only requires using a batch of calibration data to calibrate the trained floating-point model, converting the trained FP32 network directly into a network that performs fixed-point calculations. During this process, there is no need to train the original floating-point model, only a few hyperparameters need to be adjusted to complete the quantization process. The whole process is simple and fast and has been widely used in edge computing and cloud scenarios.
 
 ## Instructions for Use
 
-This section is applicable to developers using the Horizon processor and is used to introduce some instructions for using the Horizon Algorithm Toolchain.
+This section is applicable to developers using the D-Robotics processor and is used to introduce some instructions for using the D-Robotics Algorithm Toolchain.
 
 ### Instructions for Floating-Point Models (FP32)
 
@@ -26,4 +26,4 @@ This section is applicable to developers using the Horizon processor and is used
 
 ### Explanation of Model Operators List
 
--   Currently, all Caffe and ONNX operators supported by the Horizon processor are provided. Other operators that are not listed are not supported due to hardware limitations of the Horizon processor. For the specific supported operator list, please refer to the chapter [**Supported Operator List**](/toolchain_development/intermediate/supported_op_list).
+-   Currently, all Caffe and ONNX operators supported by the D-Robotics processor are provided. Other operators that are not listed are not supported due to hardware limitations of the D-Robotics processor. For the specific supported operator list, please refer to the chapter [**Supported Operator List**](/toolchain_development/intermediate/supported_op_list).

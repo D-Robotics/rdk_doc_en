@@ -48,7 +48,7 @@ ERROR nodes:['{op_type}'] are specified as domain:xxx, which are not supported b
 
 <font color='Green'>【Answer】</font> 
 
-- The reason for this error could be that the custom operator used is not supported by Horizon. To resolve it, you can either replace the operator with one listed in our supported operator list or develop and register a custom CPU operator.
+- The reason for this error could be that the custom operator used is not supported by D-Robotics. To resolve it, you can either replace the operator with one listed in our supported operator list or develop and register a custom CPU operator.
 
 #### Error in hb_mapper makertbin (03_build.sh) Model Conversion
 
@@ -83,7 +83,7 @@ ERROR There is an error in pass: {op_name}. Error message:xxx
 
 <font color='Green'>【Answer】</font> 
 
-- This error might stem from an optimization failure of the {op_name} operator. To address this issue, please gather your model and .log files and provide them to Horizon technical support for analysis and resolution.
+- This error might stem from an optimization failure of the {op_name} operator. To address this issue, please gather your model and .log files and provide them to D-Robotics technical support for analysis and resolution.
 
 
 
@@ -95,7 +95,7 @@ Error There is an error in pass:constant_folding. Error message: Could not find 
 
 <font color='Green'>【Answer】</font> 
 
-This error typically occurs when ONNX Runtime encounters an operator (`op_name`) that it does not have a built-in implementation for. It might be a custom or unsupported operator in the current version of ORT. To resolve this issue, you should verify if the specific operator is supported by checking the ORT operator list. If it's a core operator, consider contacting Horizon for development assessment or seeking an alternative implementation.
+This error typically occurs when ONNX Runtime encounters an operator (`op_name`) that it does not have a built-in implementation for. It might be a custom or unsupported operator in the current version of ORT. To resolve this issue, you should verify if the specific operator is supported by checking the ORT operator list. If it's a core operator, consider contacting D-Robotics for development assessment or seeking an alternative implementation.
 
 <font color='Blue'>【Question】</font> 
 
@@ -132,7 +132,7 @@ core dump
 <font color='Green'>【Answer】</font> 
 
 
-- This error may occur because of a model quantization/compilation failure. In response to this error, please collect the model and.log file and provide it to Horizon technicians for analysis.
+- This error may occur because of a model quantization/compilation failure. In response to this error, please collect the model and.log file and provide it to D-Robotics technicians for analysis.
 
 <font color='Blue'>【Question】</font> 
 
@@ -144,7 +144,7 @@ core dump
 <font color='Green'>【Answer】</font> 
 
 
-- This error may occur because the input shape of the onnx model is illegal, or because the tool optimization pass is incorrect. In response to this error, please ensure that the onnx model is valid, and if the onnx model can be reasoned, please provide the model to Horizon technicians for analysis and processing.
+- This error may occur because the input shape of the onnx model is illegal, or because the tool optimization pass is incorrect. In response to this error, please ensure that the onnx model is valid, and if the onnx model can be reasoned, please provide the model to D-Robotics technicians for analysis and processing.
 
 <font color='Blue'>【Question】</font> 
 
@@ -167,7 +167,7 @@ core dump
 
 <font color='Green'>【Answer】</font> 
 
-- This error may occur because the model failed to compile. In response to this error, please collect the model and.log file and provide it to Horizon technicians for analysis.
+- This error may occur because the model failed to compile. In response to this error, please collect the model and.log file and provide it to D-Robotics technicians for analysis.
 
 <font color='Blue'>【Question】</font> 
 
@@ -189,7 +189,7 @@ core dump
 
 <font color='Green'>【Answer】</font> 
 
-- This error may occur because the tool chain does not yet support this property of the op. For this error, you can replace it based on the operator support list we provide or contact Horizon for a development evaluation.
+- This error may occur because the tool chain does not yet support this property of the op. For this error, you can replace it based on the operator support list we provide or contact D-Robotics for a development evaluation.
 
 <font color='Blue'>【Question】</font> 
 
@@ -200,7 +200,7 @@ core dump
 
 <font color='Green'>【Answer】</font> 
 
-- This error may occur because there are no quantifiable BPU nodes in the model. In response to this error, ensure that the onnx model is valid and that at least one conv is used in the model. If the preceding conditions are met, collect the model and.log files and provide them to Horizon technicians for analysis and processing.
+- This error may occur because there are no quantifiable BPU nodes in the model. In response to this error, ensure that the onnx model is valid and that at least one conv is used in the model. If the preceding conditions are met, collect the model and.log files and provide them to D-Robotics technicians for analysis and processing.
 
 <font color='Blue'>【Question】</font> 
 
@@ -229,7 +229,7 @@ ERROR [ONNXRuntimeError] : 9 : NOT_IMPLEMENTED : unable to find an implementatio
 
 <font color='Green'>【Answer】</font> 
 
-- This error might occur due to the unsupported usage of the `run_on_bpu` operator at the moment. `run_on_bpu` currently only supports operators like `Relu`, `Softmax`, and pooling (e.g., `maxpool`, `avgpool`) at the end of the model, as well as CPU*+Transpose combinations (where you can specify a Transpose node name to run CPU* operations on BPU). If your model meets these conditions but still encounters issues, please contact Horizon technical support for further analysis. If it doesn't meet the criteria, you can request a development evaluation.
+- This error might occur due to the unsupported usage of the `run_on_bpu` operator at the moment. `run_on_bpu` currently only supports operators like `Relu`, `Softmax`, and pooling (e.g., `maxpool`, `avgpool`) at the end of the model, as well as CPU*+Transpose combinations (where you can specify a Transpose node name to run CPU* operations on BPU). If your model meets these conditions but still encounters issues, please contact D-Robotics technical support for further analysis. If it doesn't meet the criteria, you can request a development evaluation.
 
 <font color='Blue'>【Question】</font> 
 
@@ -325,7 +325,7 @@ ERROR [ONNXRuntimeError] : 9 : NOT_IMPLEMENTED : unable to find an implementatio
 ```
 <font color='Green'>【Solution】</font> 
 
-This error might occur because the specified attribute key for the op is not supported by libDNN. To resolve it, you can either replace the unsupported op with a compatible one from our operator support list or contact Horizon for further development evaluation.
+This error might occur because the specified attribute key for the op is not supported by libDNN. To resolve it, you can either replace the unsupported op with a compatible one from our operator support list or contact D-Robotics for further development evaluation.
 
 <font color='Blue'>【Problem】</font> 
 
@@ -334,7 +334,7 @@ This error might occur because the specified attribute key for the op is not sup
 ```
 <font color='Green'>【Solution】</font> 
 
-The error arises when the input data type does not match the required type for the operator. libDNN currently lacks support for this input type; we will gradually enforce operator constraints during the model conversion phase. To fix, check our operator support list and consider replacing or contacting Horizon for development assessment.
+The error arises when the input data type does not match the required type for the operator. libDNN currently lacks support for this input type; we will gradually enforce operator constraints during the model conversion phase. To fix, check our operator support list and consider replacing or contacting D-Robotics for development assessment.
 
 <font color='Blue'>【Problem】</font> 
 
@@ -364,7 +364,7 @@ This section will provide explanations of various transformers and their paramet
 
 Before diving into the content, please note:
 
-- The image data is in **three-dimensional format**; however, Horizon's transformers operate on **four-dimensional** data. Transformers only apply operations to the **first channel** of input images.
+- The image data is in **three-dimensional format**; however, D-Robotics's transformers operate on **four-dimensional** data. Transformers only apply operations to the **first channel** of input images.
 
 **AddTransformer**
 
@@ -1118,7 +1118,7 @@ Use an open-source tool like Netron to inspect the `original_float.onnx` model, 
 
 Since the HzPreprocess operator is present, the preprocessing in the converted model might differ from the original. This operator is added based on the configuration parameters in the YAML file (input_type_rt, input_type_train, norm_type, mean_value, scale_value). For more details, refer to the section on "norm_type configuration parameter explanation" in the PTQ principles and steps guide. The preprocessing node will appear in all conversion outputs.
 
-Ideally, the HzPreprocess node should complete the full type conversion from input_type_rt to input_type_train, but this process is done on the Horizon AI chip hardware, which is not included in the ONNX model. Thus, the actual input type in the ONNX model uses a middle type representing the hardware's handling of input_type_rt. For image models with inputs like RGB/BGR/NV12/YUV444/GRAY and dtype=uint8, apply `-128` in the preprocessing when using the `hb_session.run` interface; for featuremap models with dtype=float32, no `-128` is needed, as the input layout (NCHW/NHWC) remains the same as the original float model.
+Ideally, the HzPreprocess node should complete the full type conversion from input_type_rt to input_type_train, but this process is done on the D-Robotics AI chip hardware, which is not included in the ONNX model. Thus, the actual input type in the ONNX model uses a middle type representing the hardware's handling of input_type_rt. For image models with inputs like RGB/BGR/NV12/YUV444/GRAY and dtype=uint8, apply `-128` in the preprocessing when using the `hb_session.run` interface; for featuremap models with dtype=float32, no `-128` is needed, as the input layout (NCHW/NHWC) remains the same as the original float model.
 
 ```python
 
@@ -1237,7 +1237,7 @@ For detailed instructions on using `hb_model_verifier`, please refer to the sect
 
 If the model consistency check passes, carefully examine the board-side preprocessing and post-processing code!
 
-In case of a failure in the consistency check between the quantized.onnx and .bin models, contact Horizon technical support.
+In case of a failure in the consistency check between the quantized.onnx and .bin models, contact D-Robotics technical support.
 
 #### Quantization YAML Configuration File Templates
 
@@ -1246,7 +1246,7 @@ In case of a failure in the consistency check between the quantized.onnx and .bi
 Create a `caffe_config.yaml` file and copy the following content, then fill in the marked **`required parameters`** to proceed with model conversion. For more information on parameter usage, see the "[YAML Configuration File Explanation](../toolchain_development/intermediate/ptq_process#yaml_config)" chapter.
 
 ```yaml
-# Copyright (c) 2020 Horizon Robotics.All Rights Reserved.
+# Copyright (c) 2020 D-Robotics.All Rights Reserved.
 
 # Parameters related to model conversion
 model_parameters:
@@ -1323,7 +1323,7 @@ compiler_parameters:
 Create a `onnx_config.yaml` file and copy the following content, then fill in the marked **`required parameters`** to proceed with model conversion. For more information on parameter usage, see the "[YAML Configuration File Explanation](../toolchain_development/intermediate/ptq_process#yaml_config)" chapter.
 
 ```yaml
-# Copyright (c) 2020 Horizon Robotics.All Rights Reserved.
+# Copyright (c) 2020 D-Robotics.All Rights Reserved.
 
 # Parameters related to model conversion
 model_parameters:

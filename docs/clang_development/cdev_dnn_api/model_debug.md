@@ -60,9 +60,8 @@ sidebar_position: 8
 
 1. When using the development machine simulator, you can specify the simulated processor architecture by setting the environment variable `HB_DNN_SIM_PLATFORM`. You can execute the following commands:
 
-   - `export HB_DNN_SIM_PLATFORM=BERNOULLI` for the `BERNOULLI` architecture, simulating the Horizon `xj2` platform;
-   - `export HB_DNN_SIM_PLATFORM=BERNOULLI2` for the `BERNOULLI2` architecture, simulating the Horizon `x3` platform, **RDK X3** can be used;
-   - `export HB_DNN_SIM_PLATFORM=BAYES` for the `BAYES` architecture, simulating the Horizon `xj5` platform, **RDK Ultra** can be used.
+   - `export HB_DNN_SIM_PLATFORM=BERNOULLI2` for the `BERNOULLI2` architecture, simulating the D-Robotics `x3` platform, **RDK X3** can be used;
+   - `export HB_DNN_SIM_PLATFORM=BAYES` for the `BAYES` architecture, simulating the D-Robotics `x5` platform, **RDK X5** can be used.
 
 2. If the `HB_DNN_SIM_PLATFORM` environment variable is not set, the simulator platform will be set based on the architecture of the first loaded model. For example, if the first loaded model is of `BERNOULLI2` architecture, the program will default to the `x3` platform.
 

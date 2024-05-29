@@ -157,7 +157,7 @@ def test_display():
     print ("Display display 2 return:%d" % ret)
     ret = disp.set_graph_rect(100, 100, 1920, 200, chn = 2, flush = 1,  color = 0xffff00ff)
     print ("Display set_graph_rect return:%d" % ret)
-    string = "horizon"
+    string = "D-Robotics"
     ret = disp.set_graph_word(300, 300, string.encode('gb2312'), 2, 0, 0xff00ffff)
     print ("Display set_graph_word return:%d" % ret)
     
@@ -232,7 +232,7 @@ def test_camera_bind_display():
     ret = disp.display(2, chn_width = 1280, chn_height = 720)
     print ("Display display 2 return:%d" % ret)
     disp.set_graph_rect(100, 100, 1920, 200, chn = 2, flush = 1,  color = 0xffff00ff)
-    string = "horizon"
+    string = "D-Robotics"
     disp.set_graph_word(300, 300, string.encode('gb2312'), 2, 0, 0xff00ffff)
     ret = libsrcampy.bind(cam, disp)
     print("libsrcampy bind return:%d" % ret)
@@ -262,7 +262,7 @@ def test_decode_bind_display():
     ret = disp.display(2)
     print ("Display display 2 return:%d" % ret)
     disp.set_graph_rect(100, 100, 1920, 200, chn = 2, flush = 1,  color = 0xffff00ff)
-    string = "horizon"
+    string = "D-Robotics"
     disp.set_graph_word(300, 300, string.encode('gb2312'), 2, 0, 0xff00ffff)
     ret = libsrcampy.bind(dec, disp)
     print("libsrcampy bind return:%d" % ret)

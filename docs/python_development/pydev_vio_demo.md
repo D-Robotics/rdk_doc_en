@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 # 4.3 Image and Multimedia Examples
 
-In this chapter, we will introduce the usage of the `hobot_vio` image and multimedia library in Horizon Python language through examples such as video stream decoding. This includes operations such as video streaming, scaling, and encoding/decoding.
+In this chapter, we will introduce the usage of the `hobot_vio` image and multimedia library in D-Robotics Python language through examples such as video stream decoding. This includes operations such as video streaming, scaling, and encoding/decoding.
 
 ## Video Stream Decoding
 

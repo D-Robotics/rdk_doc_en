@@ -194,7 +194,7 @@ ret = disp.display(2)
 print ("Display display 2 return:%d" % ret)
 
 # set osd string
-string = "horizon"
+string = "D-Robotics"
 ret = disp.set_word(300, 300, string.encode('gb2312'), 0, 0xff00ffff)
 print ("Display set_word return:%d" % ret)
 ```

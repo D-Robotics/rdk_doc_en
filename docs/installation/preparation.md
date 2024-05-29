@@ -109,6 +109,6 @@ Here are some common issues when using the development board for the first time:
 
 :::tip
 
-For more problem-solving, please refer to the [Frequently Asked Questions](../category/common_questions) section, and you can also visit the [Horizon Developer Forum](https://developer.horizon.cc/forum) for assistance.
+For more problem-solving, please refer to the [Frequently Asked Questions](../category/common_questions) section, and you can also visit the [D-Robotics Developer Forum](https://developer.d-robotics.cc/forum) for assistance.
 
 :::

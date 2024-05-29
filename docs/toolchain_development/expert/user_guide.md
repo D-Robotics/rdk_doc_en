@@ -2716,8 +2716,8 @@ Therefore, you can set 'conv.preserve_qat_mode=True' to set 'fused.preserve_qat_
     set_preserve_qat_mode(qat_model, prefixes=("add",))
 
 2) If the float model uses torch functions (such as torch.add, torch.pow) and is converted using fx,
-   these functions will be automatically replaced with horizon operators. To set 'preserve_qat_mode=True'
-   for these functions, you need to set 'preserve_qat_mode=True' for the corresponding horizon operator in the qat model. Here is an example:
+   these functions will be automatically replaced with D-Robotics operators. To set 'preserve_qat_mode=True'
+   for these functions, you need to set 'preserve_qat_mode=True' for the corresponding D-Robotics operator in the qat model. Here is an example:
     class Model(torch.nn.Module):
         def __init__(self):
             super(Model, self).__init__()
@@ -3799,7 +3799,7 @@ Solution: Please refer to the [**Quantization Training Precision Tuning Guide**]
 
 `RuntimeError: Unknown builtin op: horizon::bpu_scale_quantization`
 
-Solution: Please check if you have imported horizon_plugin_pytorch before using `torch.jit.load`. Otherwise, the corresponding horizon operator cannot be found during loading. It is recommended to use [**horizon.jit.save/load**](../api_reference/apis/save_load) to save and load pt files to avoid such errors. In addition, when saving pt using `horizon.jit.save`, the version number of horizon_plugin_pytorch will also be saved, and `horizon.jit.load` will check if the current horizon_plugin_pytorch version is compatible with the saved pt. If not, a corresponding warning will be output.
+Solution: Please check if you have imported horizon_plugin_pytorch before using `torch.jit.load`. Otherwise, the corresponding D-Robotics operator cannot be found during loading. It is recommended to use [**horizon.jit.save/load**](../api_reference/apis/save_load) to save and load pt files to avoid such errors. In addition, when saving pt using `horizon.jit.save`, the version number of horizon_plugin_pytorch will also be saved, and `horizon.jit.load` will check if the current horizon_plugin_pytorch version is compatible with the saved pt. If not, a corresponding warning will be output.
 
 ## Common Misunderstandings
 
@@ -3889,7 +3889,7 @@ Due to limitations at the moment, Calibration does not support multiple GPUs. Pl
 The model input image data uses formats such as RGB instead of centered YUV444, which can result in inconsistent model deployment accuracy.
 :::
 
-Correct approach: Due to Horizon hardware limitations, we recommend that users directly use the YUV444 format as the network input for training from the beginning.
+Correct approach: Due to D-Robotics hardware limitations, we recommend that users directly use the YUV444 format as the network input for training from the beginning.
 
 ------------------------------------------------------------------------
 

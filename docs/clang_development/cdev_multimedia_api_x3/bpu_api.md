@@ -26,7 +26,7 @@ Open the algorithm model specified by `model_file_name` and initialize an algori
 
 **【Parameters】**
 
-- `model_file_name`: Algorithm model file, which needs to be converted by Horizon AI algorithm toolchain or trained fixed-point model.
+- `model_file_name`: Algorithm model file, which needs to be converted by D-Robotics AI algorithm toolchain or trained fixed-point model.
 
 **【Return Type】**
 

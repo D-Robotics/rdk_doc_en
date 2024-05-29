@@ -92,12 +92,12 @@ The above commands configure the environment variables temporarily. To make the 
 
 ## Compiling Environment Source Code (rdk-gen)
 
-rdk-gen is used to build a custom operating system image for the Horizon RDK X3. It provides a scalable framework that allows users to customize and build the Ubuntu operating system for RDK X3 according to their needs.
+rdk-gen is used to build a custom operating system image for the D-Robotics RDK X3. It provides a scalable framework that allows users to customize and build the Ubuntu operating system for RDK X3 according to their needs.
 
 Download the source code:
 
 ```shell
-git clone https://github.com/HorizonRDK/rdk-gen.git
+git clone https://github.com/D-Robotics/rdk-gen.git
 ```
 
 After downloading, the directory structure of rdk-gen is as follows:
@@ -106,7 +106,7 @@ After downloading, the directory structure of rdk-gen is as follows:
 | -------------------------- | ---------------------------------------------------------------- |
 | pack_image.sh              | Code entry for building system images                             |
 | download_samplefs.sh       | Download the pre-made base Ubuntu file system                     |
-| download_deb_pkgs.sh       | Download Horizon's deb packages, including kernel, multimedia libraries, sample code, tros.bot, etc., which need to be pre-installed in the system image |
+| download_deb_pkgs.sh       | Download D-Robotics's deb packages, including kernel, multimedia libraries, sample code, tros.bot, etc., which need to be pre-installed in the system image |
 | hobot_customize_rootfs.sh  | Customized modification of the Ubuntu file system                 |
 | source_sync.sh             | Download source code, including bootloader, uboot, kernel, example code, etc. |
 | mk_kernel.sh               | Compile kernel, device tree, and driver modules                   |
@@ -127,14 +127,14 @@ sudo privileges are required for compilation. After successful compilation, the 
 
 ### Introduction to the Compilation Process of pack_image.sh
 
-1. Call the scripts download_samplefs.sh and download_deb_pkgs.sh to download samplefs and the required pre-installed deb packages from Horizon's file server.
+1. Call the scripts download_samplefs.sh and download_deb_pkgs.sh to download samplefs and the required pre-installed deb packages from D-Robotics's file server.
 2. Extract samplefs and call the hobot_customize_rootfs.sh script to customize the filesystem configuration.
 3. Install deb packages into the filesystem.
 4. Generate the system image. Refer to [Install OS](../installation/install_os) for how to use the system image.
 
 ## Downloading Source Code
 
-Downloading source code is not required when running `pack_image.sh` to compile the system image, because `pack_image.sh` will directly download the official debian packages from Horizon's file server and install them into the system. Only when you need to modify the content of debian packages and re-create custom packages, you need to download the source code.
+Downloading source code is not required when running `pack_image.sh` to compile the system image, because `pack_image.sh` will directly download the official debian packages from D-Robotics's file server and install them into the system. Only when you need to modify the content of debian packages and re-create custom packages, you need to download the source code.
 
 The source code of rdk-linux related linux kernel, bootloader, hobot-xxx packages are hosted on [GitHub](https://github.com/). Before downloading the code, please register and log in to [GitHub](https://github.com/), and add the `SSH Key` of the development server to user settings through [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) method.
 
@@ -201,7 +201,7 @@ These contents will be used by three Debian packages: hobot-boot, hobot-dtb, and
 
 ## Compile hobot-xxx packages
 
-The hobot-xxx packages are the source code and configuration of Debian packages maintained by Horizon. After downloading the source code, you can execute `mk_debs.sh` to rebuild the Debian packages.
+The hobot-xxx packages are the source code and configuration of Debian packages maintained by D-Robotics. After downloading the source code, you can execute `mk_debs.sh` to rebuild the Debian packages.
 
 The help information is as follows:
 
@@ -243,7 +243,7 @@ The descriptions and relationships of each Debian package are shown as follows:
 | hobot-camera_xxx.deb               | Drivers and ISP parameter libraries for compatible camera sensors. |
 | hobot-dnn_xxx.deb                  | Runtime libraries and header files for algorithm-related components. |
 | hobot-io_xxx.deb                   | Interfaces and header files for 40-pin GPIO usage (implemented in Python). |
-| hobot-configs_xxx.deb              | Horizon's custom system configuration: udev configuration, apt source configuration, network, Bluetooth, USB configuration, autostart item configuration, etc. || **hobot-utils_xxx.deb**     | Common command set provided by Horizon |
+| hobot-configs_xxx.deb              | D-Robotics's custom system configuration: udev configuration, apt source configuration, network, Bluetooth, USB configuration, autostart item configuration, etc. || **hobot-utils_xxx.deb**     | Common command set provided by D-Robotics |
 | **hobot-display_xxx.deb**   | Image display related, HDMI, LCD display configuration |
 | **hobot-wifi_xxx.deb**      | Configuration for Wi-Fi and Bluetooth modules |
 | **hobot-kernel-headers_xxx.deb** | Configuration files and header files compiled after the kernel, used to support users to compile kernel drivers separately |
@@ -271,7 +271,7 @@ After the build is complete, deb packages will be generated in the `deploy/deb_p
 
 ### Using Custom Debian Packages
 
-When running `pack_image.sh` without arguments, it will download the latest release of debian packages from the Horizon file server and install them into the system. If you modify a package with the same name, you need to skip the process of downloading debian packages from the file server. You can use any optional parameters when executing the `pack_image.sh` command. For example, the following command will not redownload the debian package. Replace the original downloaded software package with your own package and rebuild it. For example, if you regenerate `hobot-boot` and name it `hobot-boot_2.0.0-customer_arm64.deb`, use that file to replace the `hobot-boot-xxx_arm64.deb` file in the `deb_packages` directory.
+When running `pack_image.sh` without arguments, it will download the latest release of debian packages from the D-Robotics file server and install them into the system. If you modify a package with the same name, you need to skip the process of downloading debian packages from the file server. You can use any optional parameters when executing the `pack_image.sh` command. For example, the following command will not redownload the debian package. Replace the original downloaded software package with your own package and rebuild it. For example, if you regenerate `hobot-boot` and name it `hobot-boot_2.0.0-customer_arm64.deb`, use that file to replace the `hobot-boot-xxx_arm64.deb` file in the `deb_packages` directory.
 
 ```shell
 sudo ./pack_image.sh c
@@ -283,7 +283,7 @@ If you have added a custom-named software package and want to install it into th
 
 The bootloader source code is used to generate the minimal boot image `disk_xxx_miniboot.img`, which contains the partition table, spl, ddr, bl31, and uboot.
 
-The minimal boot image of RDK X3 is generally maintained and released by Horizon. You can download the corresponding version from [miniboot](http://sunrise.horizon.cc/downloads/miniboot/). If there are no modifications to uboot, you can directly use the official release image.
+The minimal boot image of RDK X3 is generally maintained and released by D-Robotics. You can download the corresponding version from [miniboot](http://sunrise.horizon.cc/downloads/miniboot/). If there are no modifications to uboot, you can directly use the official release image.
 
 Follow the steps below to recompile and generate `miniboot`.
 
@@ -374,7 +374,7 @@ After modular compilation, the pack command can be executed to package disk_nand
 
 ## Creating Ubuntu File System
 
-This section describes how to create the `samplefs_desktop-v2.0.0.tar.gz` file system. Horizon maintains this file system, but if customization is required, it needs to be recreated according to the instructions in this section.
+This section describes how to create the `samplefs_desktop-v2.0.0.tar.gz` file system. D-Robotics maintains this file system, but if customization is required, it needs to be recreated according to the instructions in this section.
 
 ### Environment Configuration
 
@@ -424,7 +424,7 @@ parted is a powerful disk partition and resizing tool developed by the GNU organ
 Download `rdk-gen` source code:
 
 ```shell
-git clone https://github.com/HorizonRDK/rdk-gen.git
+git clone https://github.com/D-Robotics/rdk-gen.git
 ```
 
 Execute the following command to generate the Ubuntu file system:
@@ -481,4 +481,4 @@ In the code, key variable definitions are as follows:
 
 **DESKTOP_PACKAGE_LIST**: Software packages needed to support a graphical desktop environment.
 
-The officially maintained `samplefs_desktop` filesystem by Horizon includes all configurations from these package lists. Users can customize this by adding or removing packages according to their specific requirements, maintaining the original format or structure.
+The officially maintained `samplefs_desktop` filesystem by D-Robotics includes all configurations from these package lists. Users can customize this by adding or removing packages according to their specific requirements, maintaining the original format or structure.

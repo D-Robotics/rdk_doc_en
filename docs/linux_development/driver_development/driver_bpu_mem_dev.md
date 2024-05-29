@@ -76,4 +76,4 @@ After saving, it is recommended to convert it back to a dts file and confirm if 
 Note:
 
 - Modifying the DTB file may affect the stability and security of your system. Before modifying the DTB file, make sure you understand the meaning of the content you want to change and backup the original DTB file to prevent accidental errors.
-- The files under /boot/hobot/ are managed by the Horizon package. If the system software is upgraded, user modifications will be reset to the default configuration (672MB).
+- The files under /boot/hobot/ are managed by the D-Robotics package. If the system software is upgraded, user modifications will be reset to the default configuration (672MB).

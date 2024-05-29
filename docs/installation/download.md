@@ -27,4 +27,4 @@ sidebar_position: 6
 ## Quality Certification
 
 - **Description:** The RDK X3 series has successfully passed multiple domestic and international quality certifications, demonstrating its excellent quality and performance. We are well aware of the importance of quality to our customers, so we are committed to providing high-quality products and services. If you are interested in specific information about quality certification, please feel free to contact us via email. We also look forward to discussing more applications and cooperation possibilities of the RDK series with you.
-- **Email:** forum-bd@horizon.cc
+- **Email:** developer@d-robotics.cc

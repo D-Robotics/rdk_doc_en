@@ -7,12 +7,12 @@ sidebar_position: 3
 
 ### Limitations and Notes
 
-This section primarily covers the operators supported by the Horizon Processor for both `Caffe` and `ONNX`. Operators not listed are currently unsupported due to hardware limitations on the BPU.
+This section primarily covers the operators supported by the D-Robotics Processor for both `Caffe` and `ONNX`. Operators not listed are currently unsupported due to hardware limitations on the BPU.
 
 **Terminology:**
 
-- **BPU Acceleration**: Operators that the Horizon Processor can accelerate under certain constraints; if not met, they will be computed on the CPU.
-- **CPU Computation**: Operators already optimized on Horizon's ARM CPU, supporting ONNX opsets 10 and 11.
+- **BPU Acceleration**: Operators that the D-Robotics Processor can accelerate under certain constraints; if not met, they will be computed on the CPU.
+- **CPU Computation**: Operators already optimized on D-Robotics's ARM CPU, supporting ONNX opsets 10 and 11.
 - **CPU Computation※**: Temporary CPU operators not yet integrated.
 
 **Additional Considerations:**
@@ -26,7 +26,7 @@ This section primarily covers the operators supported by the Horizon Processor f
 
 - Operators like `Cast`, `Constant`, `Dropout`, `Reshape`, `Squeeze`, `Unsqueeze`, and `Shape` (OPs) cannot run directly on the BPU, but algorithmic toolchains may optimize them in some cases (e.g., constant folding) for support.
 
-- Operators marked as PyTorch are officially unsupported opsets 11 ops, which Horizon's algorithm toolchain provides a script to export from PyTorch to custom ONNX ops.
+- Operators marked as PyTorch are officially unsupported opsets 11 ops, which D-Robotics's algorithm toolchain provides a script to export from PyTorch to custom ONNX ops.
 
 - Tensorflow-onnx conversion tool (https://github.com/onnx/tensorflow-onnx) supports converting TensorFlow 1.x operators to stable ONNX opsets 6-11, but TensorFlow 2.x support is still experimental.
 

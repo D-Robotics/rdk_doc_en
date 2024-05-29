@@ -40,5 +40,4 @@ sidebar_position: 7
 
 | Type | Supplier | Model         | Description                   | Purchase Link |
 | ---- | -------- | ------------- | ----------------------------- | ------------- |
-| Audio Adapter Board | Waveshare | Audio Driver HAT   | Supports Circular 4 MIC Recording, Dual-channel Playback, Audio Capture | [Purchase Link](https://www.waveshare.net/shop/Audio-Driver-HAT.htm)  |
 | Audio Adapter Board | Waveshare | WM8960 Audio HAT  | Supports Dual-channel Recording/Playback, suitable for RDK X3 2.0, RDK X3 Module | [Purchase Link](https://www.waveshare.net/shop/WM8960-Audio-HAT.htm)  |

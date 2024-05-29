@@ -31,7 +31,6 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 **Version description:**
 
 - Version 2.0: Made based on the RDK Linux open source code package, supporting the full range of hardware such as RDK X3 and X3 module.
-- Version 1.0: Historical version of Sunrise X3, only supporting Sunrise X3 hardware, the system image name is `system_sdcard.img`.
 
 </TabItem>
 
@@ -46,7 +45,6 @@ After downloading, unzip the Ubuntu system image file, such as `ubuntu-preinstal
 **Version description:**
 
 - Version 2.0: Made based on the RDK Linux open source code package, supporting the full range of hardware such as RDK X3 and X3 module.
-- Version 1.0: Historical version of Sunrise X3, only supporting Sunrise X3 hardware, the system image name is `system_sdcard.img`
 
 </TabItem>
 
@@ -91,7 +89,7 @@ balenaEtcher is a PC-side boot disk creation tool that supports multiple platfor
 The RDK X3 Module supports booting the system from two modes: eMMC and SD card:
 
 - **Using SD card**: If you want to burn the system to an SD card (not booting from eMMC mode), follow the same steps as RDK X3 for burning the system.
-- **Using eMMC**: You need to use the Horizon `hbupdate` tool. (**This method is mainly described below**)
+- **Using eMMC**: You need to use the D-Robotics `hbupdate` tool. (**This method is mainly described below**)
 
 The `hbupdate` tool supports two versions: Windows and Linux, which start with `hbupdate_win64` and `hbupdate_linux` respectively. The tool download link is: [hbupdate](http://sunrise.horizon.cc/downloads/hbupdate/).
 

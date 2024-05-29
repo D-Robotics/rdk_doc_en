@@ -3,16 +3,13 @@ slug: /
 sidebar_position: 1
 ---
 
-# Horizon RDK Suite
+# D-Robotics  RDK Suite
 
-This document is the user manual for the Horizon RDK Suite, providing developers with instructions and development guidance for products such as RDK X3, RDK X3 Module, and RDK Ultra. The content covers various aspects such as hardware design, system customization, application development, and algorithm toolchains. Users are welcome to update and experience, please refer to the [Quick Start](/category/installation) section for specific instructions.
+This document is the user manual for the D-Robotics RDK Suite, providing developers with instructions and development guidance for products such as RDK X3, RDK X3 Module, and RDK Ultra. The content covers various aspects such as hardware design, system customization, application development, and algorithm toolchains. Users are welcome to update and experience, please refer to the [Quick Start](/category/installation) section for specific instructions.
 
 :::info Note
 
-- All **RDK X3** mentioned in this document use the Ubuntu 2.0 version operating system. For users who still need to use **Sunrise X3 version 1.0 system**, you can obtain information from the following links:<br/>
-     [Sunrise X3 User Manual](https://developer.horizon.cc/api/v1/fileData/documents_pi/index.html)<br/>
-     [Sunrise X3 Ubuntu Image](http://sunrise.horizon.cc/downloads/os_images/), select the image in the 1.x.x version directory<br/>
-     [Sunrise X3 Data Package](https://developer.horizon.cc/api/v1/static/fileData/X3%E6%B4%BE%E8%B5%84%E6%96%99%E5%8C%85_20220711175326.zip)<br/>
+- All **RDK X3** mentioned in this document use the Ubuntu 2.0 and 3.0 version operating system.
 
 - The **RDK X3 Module** comes with a pre-burned test version system image, to ensure the use of the latest version of the system, it is recommended to refer to this document to complete [the burning of the latest version of the system image](/installation/install_os).
 
@@ -21,11 +18,11 @@ To check the system version number, you can use the following command `cat /etc/
 
 
 
-## Overview of Horizon RDK Suite
+## Overview of D-Robotics RDK Suite
 
-**Horizon Robotics Developer Kits**, abbreviated as Horizon RDK Suite, is a robot development kit built on the Horizon intelligent chip, including RDK X3, RDK X3 Module, and RDK Ultra. In combination with the TogetheROS.Bot robot middleware, the Horizon RDK Suite can help developers quickly build robot prototypes and carry out evaluation and verification work.
+**D-Robotics Developer Kits**, abbreviated as D-Robotics RDK Suite, is a robot development kit built on the D-Robotics intelligent chip, including RDK X3, RDK X3 Module, and RDK Ultra. In combination with the TogetheROS.Bot robot middleware, the D-Robotics RDK Suite can help developers quickly build robot prototypes and carry out evaluation and verification work.
 
-This document will provide detailed instructions on how to use the Horizon RDK Suite, including setting up the development environment, running example tutorials, developing applications, and customizing system images. Regardless of which hardware you choose to use, the content described in this document will provide you with a consistent user experience.
+This document will provide detailed instructions on how to use the D-Robotics RDK Suite, including setting up the development environment, running example tutorials, developing applications, and customizing system images. Regardless of which hardware you choose to use, the content described in this document will provide you with a consistent user experience.
 
 ## Product Introduction
 
@@ -63,7 +60,7 @@ Introduces the usage of video, image, and multimedia low-level interfaces, cover
 Introduces the hardware specifications, interfaces, design files, and design guidelines for RDK X3 (Sunrise X3), RDK X3 Module (Sunrise X3 Module), and RDK Ultra. It provides design materials such as specifications, schematics, dimension drawings, etc.
 
 **[Algorithm Toolchain Development Guide](/category/toolchain_development)**  
-Introduces the usage of Horizon's algorithm quantization toolchain, covering commonly used algorithm models, usage of development tools, optimization techniques, and more.
+Introduces the usage of D-Robotics's algorithm quantization toolchain, covering commonly used algorithm models, usage of development tools, optimization techniques, and more.
 
 **[Common Questions](/category/common_questions)**  
 This chapter answers common questions and doubts that users may encounter when using the developer kit. It provides solutions and tips to help users solve common problems and carry out development work smoothly.
@@ -93,7 +90,7 @@ Enhancements:
 
 Bug Fixes: 
 - Remove redundant kernel logs for Wi-Fi drivers.
-- Modify apt source domain to sunrise.horizon.cc.
+- Modify apt source domain to sunrise.D-Robotics.cc.
 
 Other updates:
 
@@ -107,7 +104,7 @@ Open-source:
 
 - We have fully open-sourced the source code of the operating system, including the source code of system core modules and functional modules. Developers can freely view and modify the source code, providing greater flexibility for customization and optimization.
 - Detailed code documentation and comments will be provided to developers to help them better understand and use the source code.
-- We welcome developers to participate in code contribution and discussions through the open-source community, together driving the improvement and optimization of the operating system. The source code is maintained on [HorizonRDK](https://github.com/HorizonRDK).
+- We welcome developers to participate in code contribution and discussions through the open-source community, together driving the improvement and optimization of the operating system. The source code is maintained on [D-Robotics](https://github.com/D-Robotics).
 
 Support for RDK X3 Module:
 

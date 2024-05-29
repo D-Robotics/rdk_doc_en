@@ -43,7 +43,7 @@ The RDK X3 Module supports booting the system from both eMMC and SD card:
 
 When the RDK X3 module needs to burn the system to the SD card and does not boot from the eMMC mode, please refer to [Install OS](../../installation/install_os.md) to complete the burning of the SD card system.
 
-When burning the eMMC system image on the RDK X3 module, the Horizon `hbupdate` burning tool is required. Currently, the tool supports two versions: Windows and Linux, which are respectively named `hbupdate_win64` and `hbupdate_linux`. The tool can be downloaded from the following link: [hbupdate](http://sunrise.horizon.cc/downloads/hbupdate/).
+When burning the eMMC system image on the RDK X3 module, the D-Robotics `hbupdate` burning tool is required. Currently, the tool supports two versions: Windows and Linux, which are respectively named `hbupdate_win64` and `hbupdate_linux`. The tool can be downloaded from the following link: [hbupdate](http://sunrise.horizon.cc/downloads/hbupdate/).
 
 The following precautions should be taken when using the tool:
 - Unzip the compressed file of the tool, and make sure that the decompression path does not contain any **spaces, Chinese characters, special characters**, etc.

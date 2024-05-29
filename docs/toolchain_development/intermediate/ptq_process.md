@@ -62,7 +62,7 @@ For the conversion from different frameworks to ONNX, there are currently corres
 
 :::caution Caution
 
-  - Operators used in floating-point models need to comply with the operator constraint conditions of the Horizon algorithm toolchain. Please refer to the [**Supported Operator List**](./supported_op_list) section for details.
+  - Operators used in floating-point models need to comply with the operator constraint conditions of the D-Robotics algorithm toolchain. Please refer to the [**Supported Operator List**](./supported_op_list) section for details.
 
   - Currently, the conversion tool only supports the conversion of models with output count less than or equal to 32.
 
@@ -75,11 +75,11 @@ For the conversion from different frameworks to ONNX, there are currently corres
 
 ### Model Validation {#model_check}
 
-Before formally converting the model, please use the ``hb_mapper checker`` tool to validate the model and ensure that it complies with the constraints supported by the Horizon processor.
+Before formally converting the model, please use the ``hb_mapper checker`` tool to validate the model and ensure that it complies with the constraints supported by the D-Robotics processor.
 
 :::tip Tips
 
-  It is recommended to refer to the script methods ``01_check_X3.sh`` or ``01_check_Ultra.sh`` in the model conversion ``horizon_model_convert_sample`` example package of Horizon for examples of caffe, onnx, and other models.
+  It is recommended to refer to the script methods ``01_check_X3.sh`` or ``01_check_Ultra.sh`` in the model conversion ``horizon_model_convert_sample`` example package of D-Robotics for examples of caffe, onnx, and other models.
 :::
 
 #### Validate the model using the ``hb_mapper checker`` tool
@@ -102,7 +102,7 @@ hb_mapper checker parameters explanation:
   Specifies the model type of the input for checking, currently only supports setting ``caffe`` or ``onnx``.
 
 --march
-  Specifies the Horizon processor type to be adapted, can be set to ``bernoulli2`` or ``bayes``; set to ``bernoulli2`` for RDK X3 and ``bayes`` for RDK Ultra.
+  Specifies the D-Robotics processor type to be adapted, can be set to ``bernoulli2`` or ``bayes``; set to ``bernoulli2`` for RDK X3 and ``bayes`` for RDK Ultra.
 
 --proto<br/>
   This parameter is only useful when ``model-type`` is set to ``caffe``, and its value is the prototxt file name of the Caffe model.
@@ -176,7 +176,7 @@ After using ``hb_mapper checker`` to check this model, you will get the followin
 
 :::caution Note
 
-  - If the model check step is terminated abnormally or there is an error message, it means that the model verification fails. Please confirm the error message and modification suggestions according to the terminal print or the generated ``hb_mapper_checker.log`` log file in the current path. You can find the solution to the error in the "Model Quantization Errors and Solutions" section. If the above steps still cannot resolve the problem, please contact the Horizon technical support team or submit your question in the [Horizon Official Developer Community](https://developer.horizon.ai/). We will provide support within 24 hours.
+  - If the model check step is terminated abnormally or there is an error message, it means that the model verification fails. Please confirm the error message and modification suggestions according to the terminal print or the generated ``hb_mapper_checker.log`` log file in the current path. You can find the solution to the error in the "Model Quantization Errors and Solutions" section. If the above steps still cannot resolve the problem, please contact the D-Robotics technical support team or submit your question in the [D-Robotics Official Developer Community](https://developer.horizon.ai/). We will provide support within 24 hours.
 :::
 
 
@@ -197,7 +197,7 @@ conv3_1/sep BPU id(0) HzSQuantizedConv
 ...
 ```
 
-The result of each line represents the checking status of a model node, with four columns: Node, ON, Subgraph, and Type. They represent the node name, the hardware on which the node is executed, the subgraph to which the node belongs, and the Horizon operator name to which the node is mapped. If the model contains CPU operators in the network structure, the hb_mapper checker tool will split the part before and after the CPU operator into two subgraphs.
+The result of each line represents the checking status of a model node, with four columns: Node, ON, Subgraph, and Type. They represent the node name, the hardware on which the node is executed, the subgraph to which the node belongs, and the D-Robotics operator name to which the node is mapped. If the model contains CPU operators in the network structure, the hb_mapper checker tool will split the part before and after the CPU operator into two subgraphs.
 
 #### Optimization Guide for Checking Results
 
@@ -287,11 +287,11 @@ Therefore, the final checking result of the model will also show segmentation, a
 
 According to the hints provided by hb_mapper checker, generally, the operators running on BPU will have better performance. In this case, you can remove the CPU operators like pow and reshape from the model and calculate the corresponding functions in the post-processing to reduce the number of subgraphs.
 
-However, multiple subgraphs will not affect the overall conversion process but will affect the performance of the model to a large extent. It is recommended to adjust the model operators to run on BPU as much as possible. You can refer to the BPU operator support list in the Horizon Processor Operator Support List to replace the CPU operators with BPU operators with the same functions or move the CPU operators in the model to the pre- and post-processing of the model for CPU calculations.
+However, multiple subgraphs will not affect the overall conversion process but will affect the performance of the model to a large extent. It is recommended to adjust the model operators to run on BPU as much as possible. You can refer to the BPU operator support list in the D-Robotics Processor Operator Support List to replace the CPU operators with BPU operators with the same functions or move the CPU operators in the model to the pre- and post-processing of the model for CPU calculations.
 
 ### Model conversion
 
-The model conversion phase will convert the floating-point model to a Horizon heterogeneous model, and after this phase, you will have a model that can run on the Horizon processor.
+The model conversion phase will convert the floating-point model to a D-Robotics heterogeneous model, and after this phase, you will have a model that can run on the D-Robotics processor.
 
 Before performing the conversion, please make sure that the validation model process has been successfully passed.
 
@@ -328,7 +328,7 @@ To avoid excessive code length, the implementation code of various simple transf
 
 :::tip Tips
 
-  It is recommended to refer to the preprocessing steps of the sample models in the Horizon model conversion "horizon_model_convert_sample" sample package, such as caffe and onnx models: "02_preprocess.sh" and "preprocess.py".
+  It is recommended to refer to the preprocessing steps of the sample models in the D-Robotics model conversion "horizon_model_convert_sample" sample package, such as caffe and onnx models: "02_preprocess.sh" and "preprocess.py".
 :::
 
 ```python
@@ -398,7 +398,7 @@ hb_mapper makertbin provides two modes, with and without the ``fast-perf`` mode 
 
 :::tip Tips
 
-  It is recommended to refer to the script methods of the example models in the Horizon Model Conversion "horizon_model_convert_sample" package, such as caffe and onnx example models: "03_build_X3.sh" or "03_build_Ultra.sh".
+  It is recommended to refer to the script methods of the example models in the D-Robotics Model Conversion "horizon_model_convert_sample" package, such as caffe and onnx example models: "03_build_X3.sh" or "03_build_Ultra.sh".
 :::
 
 The usage of the hb_mapper makertbin command is as follows:
@@ -449,7 +449,7 @@ Microarchitecture of BPU. Set it to "bernoulli2" if using "RDK X3", and set it t
 
 - For "RDK Ultra yaml configuration file", fill in the template file [**RDK Ultra Caffe model quantization yaml template**](../../common_questions/toolchain#rdk_ultra_caffe_yaml_template) or [**RDK Ultra ONNX model quantization yaml template**](../../common_questions/toolchain#rdk_ultra_onnx_yaml_template) directly.
 
-- If the hb_mapper makertbin step terminates abnormally or shows an error message, it means that the model conversion has failed. Please check the error message and modification suggestions in the terminal printout or in the ``hb_mapper_makertbin.log`` log file generated in the current path. You can find the solution for the error in the [**Model Quantization Errors and Solutions**](../../common_questions/toolchain#model_convert_errors_and_solutions) section. If the problem cannot be solved after these steps, please contact the Horizon technical support team or submit your question in the [**Horizon Official Technical Community**](https://developer.horizon.ai/). We will provide support within 24 hours.
+- If the hb_mapper makertbin step terminates abnormally or shows an error message, it means that the model conversion has failed. Please check the error message and modification suggestions in the terminal printout or in the ``hb_mapper_makertbin.log`` log file generated in the current path. You can find the solution for the error in the [**Model Quantization Errors and Solutions**](../../common_questions/toolchain#model_convert_errors_and_solutions) section. If the problem cannot be solved after these steps, please contact the D-Robotics technical support team or submit your question in the [**D-Robotics Official Technical Community**](https://developer.horizon.ai/). We will provide support within 24 hours.
 
 :::
 
@@ -472,7 +472,7 @@ In other words, either a Caffe model or an ONNX model can be used.
     # Original ONNX floating-point model file
     onnx_model: '****.onnx'
 
-    # Target processor architecture for conversion, keep the default value, bernoulli2 for Horizon RDK X3 and bayes for RDK Ultra
+    # Target processor architecture for conversion, keep the default value, bernoulli2 for D-Robotics RDK X3 and bayes for RDK Ultra
     march: 'bernoulli2'
 
     # Prefix of the model file for execution on the board after conversion
@@ -666,7 +666,7 @@ The following is a description of the specific parameter information. There will
 |--------------|-------------|-------------|------------------|
 | `compile_mode` | **Purpose**: Select the compilation strategy.<br/>**Description**: Choose between `latency` for inference time optimization or `bandwidth` for DDR access bandwidth optimization. For models without significant bandwidth exceedance, use the `latency` strategy is recommended.| **Value Range**: `latency`, `bandwidth`.<br/> **Default**: `latency`. | Required |
 | `debug` | **Purpose**: Enable debug information in the compilation process.<br/>**Description**: Enabling this parameter saves performance analysis results in the model, allowing you to view layer-wise BPU operator performance (including compute, compute time, and data movement time) in the generated static performance assessment files. It is recommended to keep it disabled by default.| **Value Range**: `True`, `False`.<br/> **Default**: `False`. | Optional |
-| `core_num` | **Purpose**: Number of cores for model execution.<br/>**Description**: Horizon Platform supports using multiple AI accelerator cores simultaneously for inference tasks. Multiple cores are beneficial for larger input sizes, with double-core speed typically around 1.5 times that of single-core. If your model has large inputs and追求极致速度, set `core_num=2`. **Note**: This option is not supported for RDK Ultra, please do not configure.| **Value Range**: `1`, `2`.<br/> **Default**: `1`. | Optional |
+| `core_num` | **Purpose**: Number of cores for model execution.<br/>**Description**: D-Robotics Platform supports using multiple AI accelerator cores simultaneously for inference tasks. Multiple cores are beneficial for larger input sizes, with double-core speed typically around 1.5 times that of single-core. If your model has large inputs and追求极致速度, set `core_num=2`. **Note**: This option is not supported for RDK Ultra, please do not configure.| **Value Range**: `1`, `2`.<br/> **Default**: `1`. | Optional |
 | `optimize_level` | **Purpose**: Model compilation optimization level.<br/>**Description**: The optimization levels range from `O0` (no optimization, fastest compile) to `O3` (higher optimization, slower compile). Normal performance models should use `O3` for optimal performance. Lower levels can be used for faster development or debugging processes.| **Value Range**: `O0`, `O1`, `O2`, `O3`.<br/> **Default**: None. | Required |
 | `input_source` | **Purpose**: Set the source of input data for the on-board bin model.<br/>**Description**: This parameter is for engineering environment compatibility. Configure after model validation. Options include `ddr` (memory), `pyramid`, and `resizer`. Note: If set to `resizer`, the model's h*w should be less than 18432. In an engineering environment, adapting `pyramid` and `resizer` sources requires specific configuration, e.g., if the model input name is `data` and the source is memory (ddr), set as `{"data": "ddr"}`.| **Value Range**: `ddr`, `pyramid`, `resizer`<br/> **Default**: None (auto-selected based on `input_type_rt`). | Optional |
 | `max_time_per_fc` | **Purpose**: Maximum continuous execution time per function call (in us).<br/>**Description**: In the compiled data instruction model, each inference on BPU is represented by one or more function calls (BPU execution granularity). A value of 0 means no limit. This parameter limits the max execution time per function call, allowing the model to be interrupted if necessary. See the section on Model Priority Control for details. - This parameter is for implementing model preemption; ignore if not needed.<br/> - Model preemption is only supported on development boards, not PC simulators.| **Value Range**: `0` or `1000-4294967295`.<br/> **Default**: `0`. | Optional |
@@ -690,7 +690,7 @@ For unsupported scenarios, the model conversion tool will print a log to indicat
 
 ##### Pre-processing HzPreprocess Operator Instructions {#pre_process}
 
-The pre-processing HzPreprocess operator is a pre-processing operator node inserted after the model input node during the model conversion process of Horizon Model Conversion Tool. It is used to normalize the input data of the model. This section mainly introduces the parameters "norm_type", "mean_value", "scale_value", and the explanation of the HzPreprocess operator node generated by the model pre-processing.
+The pre-processing HzPreprocess operator is a pre-processing operator node inserted after the model input node during the model conversion process of D-Robotics Model Conversion Tool. It is used to normalize the input data of the model. This section mainly introduces the parameters "norm_type", "mean_value", "scale_value", and the explanation of the HzPreprocess operator node generated by the model pre-processing.
 
 **norm_type Parameter Explanation**
 
@@ -788,11 +788,11 @@ The calculation formula in the HzPreprocess node is: `((input (range [-128,127])
 
 #### Conversion Internal Process Interpretation
 
-During the model conversion stage, the floating-point model is transformed into the Horizon mixed heterogeneous model. In order to efficiently run this heterogeneous model on embedded devices, the model conversion focuses on solving two key issues: **input data processing** and **model optimization compilation**. This section will discuss these two key issues in detail.
+During the model conversion stage, the floating-point model is transformed into the D-Robotics mixed heterogeneous model. In order to efficiently run this heterogeneous model on embedded devices, the model conversion focuses on solving two key issues: **input data processing** and **model optimization compilation**. This section will discuss these two key issues in detail.
 
-**Input Data Processing**: The Horizon X3 processor provides hardware-level support for certain types of model input pathways. For example, in the case of the video pathway, the video processing subsystem provides functions such as image cropping, scaling, and other image quality optimization for image acquisition. The output of these subsystems is in the YUV420 NV12 format, while the algorithm models are typically trained on more common image formats such as BGR/RGB.
+**Input Data Processing**: The D-Robotics X3 processor provides hardware-level support for certain types of model input pathways. For example, in the case of the video pathway, the video processing subsystem provides functions such as image cropping, scaling, and other image quality optimization for image acquisition. The output of these subsystems is in the YUV420 NV12 format, while the algorithm models are typically trained on more common image formats such as BGR/RGB.
 
-Horizon provides the following solutions for this situation:
+D-Robotics provides the following solutions for this situation:
 
 1. Each converted model provides two types of descriptions: one for describing the input data of the original floating-point model (`input_type_train` and `input_layout_train`), and the other for describing the input data of the processor we need to interface with (`input_type_rt` and `input_layout_rt`).
 
@@ -802,9 +802,9 @@ After processing through the above two methods, the input part of the heterogene
 
 ![input_data_process](./image/intermediate/input_data_process.png)
 
-The data layouts shown in the above figure include NCHW and NHWC, where N represents the number, C represents the channel, H represents the height, and W represents the width. The two different layouts reflect different memory access characteristics. NHWC is more commonly used in TensorFlow models, while NCHW is used in Caffe. The Horizon processor does not restrict the use of data layouts, but there are two requirements: first, `input_layout_train` must be consistent with the data layout of the original model; second, prepare the data with the data layout consistent with `input_layout_rt` on the processor, as the correct data layout is the basis for successful data parsing.
+The data layouts shown in the above figure include NCHW and NHWC, where N represents the number, C represents the channel, H represents the height, and W represents the width. The two different layouts reflect different memory access characteristics. NHWC is more commonly used in TensorFlow models, while NCHW is used in Caffe. The D-Robotics processor does not restrict the use of data layouts, but there are two requirements: first, `input_layout_train` must be consistent with the data layout of the original model; second, prepare the data with the data layout consistent with `input_layout_rt` on the processor, as the correct data layout is the basis for successful data parsing.
 
-The model conversion tool will automatically add data conversion nodes based on the data formats specified by `input_type_rt` and `input_type_train`. According to Horizon's actual usage experience, not all possible type combinations are needed. To prevent misuse, we only provide a few fixed type combinations, as shown in the table below:
+The model conversion tool will automatically add data conversion nodes based on the data formats specified by `input_type_rt` and `input_type_train`. According to D-Robotics's actual usage experience, not all possible type combinations are needed. To prevent misuse, we only provide a few fixed type combinations, as shown in the table below:
 
 | `input_type_train` \\ `input_type_rt` | nv12 | yuv444 | rgb | bgr | gray | featuremap |
 |------------------------------------|------|--------|-----|-----|------|------------|
@@ -847,7 +847,7 @@ The **model optimization compilation** completes several important stages, inclu
 
 In the **model parsing stage**, for a Caffe floating-point model, it will be transformed into an ONNX floating-point model. The original floating-point model will determine whether to include a data preprocessing node based on the configuration parameters in the transformation configuration YAML file. This stage produces an "original_float_model.onnx". This ONNX model still has a calculation precision of float32, but it includes a data preprocessing node in the input part.
 
-Ideally, this preprocessing node should complete the complete conversion from "input_type_rt" to "input_type_train". In reality, the entire type conversion process will be completed in collaboration with the Horizon processor hardware. The ONNX model does not include the hardware conversion. Therefore, the real input type of ONNX will use an intermediate type, which is the result type of the hardware processing of "input_type_rt". The data layout (NCHW/NHWC) will remain consistent with the input layout of the original floating-point model. Each "input_type_rt" has a specific corresponding intermediate type, as shown in the following table:
+Ideally, this preprocessing node should complete the complete conversion from "input_type_rt" to "input_type_train". In reality, the entire type conversion process will be completed in collaboration with the D-Robotics processor hardware. The ONNX model does not include the hardware conversion. Therefore, the real input type of ONNX will use an intermediate type, which is the result type of the hardware processing of "input_type_rt". The data layout (NCHW/NHWC) will remain consistent with the input layout of the original floating-point model. Each "input_type_rt" has a specific corresponding intermediate type, as shown in the following table:
 
 | **nv12**   | **yuv444** | **rgb** | **bgr** | **gray** | featuremap |
 |------------|------------|---------|---------|----------|------------|
@@ -864,7 +864,7 @@ The bold part in the table is the data type specified by "input_type_rt", and th
 :::
 
 
-**Model Optimization Phase** implements some optimization strategies for the model that are suitable for the Horizon platform, such as BN fusion into Conv. 
+**Model Optimization Phase** implements some optimization strategies for the model that are suitable for the D-Robotics platform, such as BN fusion into Conv. 
 The output of this phase is an optimized_float_model.onnx file. The computational precision of this ONNX model is still float32, and the optimization will not affect the computational results of the model. 
 The requirements for the input data of the model are still consistent with the original_float_model mentioned earlier.
 
@@ -893,7 +893,7 @@ That is, the input layout of input_layout_train, origin.onnx, and calibrated_mod
   Please note that if input_type_rt is nv12, the input layout of quanti.onnx is NHWC.
 :::
 
-**Model Compilation Phase** uses the Horizon model compiler to convert the quantized model into the computation instructions and data supported by the Horizon platform. The output of this phase is a \*.bin model, which is the model that can be run on the Horizon embedded platform, and it is the final output of the model conversion.
+**Model Compilation Phase** uses the D-Robotics model compiler to convert the quantized model into the computation instructions and data supported by the D-Robotics platform. The output of this phase is a \*.bin model, which is the model that can be run on the D-Robotics embedded platform, and it is the final output of the model conversion.
 
 #### Interpretation of Conversion Results
 This section will introduce the interpretation of the successful conversion status and the analysis methods for unsuccessful conversions. To confirm the successful model conversion, you need to confirm from three aspects: the "makertbin" status information, similarity information, and the "working_dir" output.
@@ -916,7 +916,7 @@ The similarity information also exists in the console output of "makertbin". Bef
 ……  ……  ……  ……  0.996656  4.495638
 ```
 The output content listed above, Nodes, ON, Subgraph and Type are consistent with the interpretation of the `hb_mapper checker` tool, please refer to the previous section [Check Results](#check_result);
-Threshold is the calibration threshold for each layer, which is used to provide feedback to Horizon technical support in abnormal conditions, and does not need to be paid attention to under normal conditions;
+Threshold is the calibration threshold for each layer, which is used to provide feedback to D-Robotics technical support in abnormal conditions, and does not need to be paid attention to under normal conditions;
 The column of Cosine Similarity reflects the cosine similarity of the output results of the corresponding operator in the Node column between the original floating-point model and the quantization model.
 
 :::tip Tips
@@ -947,7 +947,7 @@ Missing keys: 'caffe_model', 'prototxt'
 2021-04-21 14:45:34,085 ERROR exception in command: makertbin
 ```
 
-If the log information output to the console cannot help you find the problem, please refer to the section [Model Quantization Errors and Solutions](../../common_questions/toolchain#model_convert_errors_and_solutions) for troubleshooting. If the above steps still cannot solve the problem, please contact the Horizon technical support team or submit your issue in the [official Horizon developer community](https://developer.horizon.ai/), and we will provide support within 24 hours.
+If the log information output to the console cannot help you find the problem, please refer to the section [Model Quantization Errors and Solutions](../../common_questions/toolchain#model_convert_errors_and_solutions) for troubleshooting. If the above steps still cannot solve the problem, please contact the D-Robotics technical support team or submit your issue in the [official D-Robotics developer community](https://developer.horizon.ai/), and we will provide support within 24 hours.
 
 
 #### Conversion Output Interpretation{#conversion_output}
@@ -962,8 +962,8 @@ As mentioned earlier, the successful conversion of the model produces four parts
 
 The process of generating \*\*\*_original_float_model.onnx can refer to the explanation in [**Conversion Interpretation**](#conversion_interpretation). 
 The computation accuracy of this model is exactly the same as the original float model used in the conversion input. 
-One important change is the addition of some data preprocessing computations to adapt to the Horizon platform (an additional preprocessing operator node called "HzPreprocess" has been added, which can be viewed using the netron tool to open the onnx model. For details about this operator, please see [**Preprocessing Parameters of Operator HzPreprocess**](#pre_process)). 
-In general, you do not need to use this model. However, if you encounter abnormal results in the conversion process and the troubleshooting method mentioned earlier does not solve your problem, please provide this model to Horizon's technical support team, or submit your questions in the [**Horizon Official Technical Community**](https://developer.horizon.ai/). This will help you quickly resolve your issue.
+One important change is the addition of some data preprocessing computations to adapt to the D-Robotics platform (an additional preprocessing operator node called "HzPreprocess" has been added, which can be viewed using the netron tool to open the onnx model. For details about this operator, please see [**Preprocessing Parameters of Operator HzPreprocess**](#pre_process)). 
+In general, you do not need to use this model. However, if you encounter abnormal results in the conversion process and the troubleshooting method mentioned earlier does not solve your problem, please provide this model to D-Robotics's technical support team, or submit your questions in the [**D-Robotics Official Technical Community**](https://developer.horizon.ai/). This will help you quickly resolve your issue.
 
 The process of generating \*\*\*_calibrated_model.onnx can refer to the explanation in [**Conversion Interpretation**](#conversion_interpretation). 
 This model is produced by the model conversion toolchain, which optimizes the float model's structure and obtains the quantization parameters for each node by calculating with calibration data, which are saved in the calibration node as intermediate products.
@@ -971,26 +971,26 @@ This model is produced by the model conversion toolchain, which optimizes the fl
 The process of generating \*\*\*_optimized_float_model.onnx can refer to the explanation in [**Conversion Interpretation**](#conversion_interpretation). 
 This model undergoes some operator-level optimization operations, such as operator fusion. 
 By comparing it with the original_float model visually, you can clearly see some changes at the operator structure level, but these do not affect the model's computation accuracy. 
-In general, you do not need to use this model. However, if you encounter abnormal results in the conversion process and the troubleshooting method mentioned earlier does not solve your problem, please provide this model to Horizon's technical support team, or submit your questions in the [**Horizon Official Technical Community**](https://developer.horizon.ai/). This will help you quickly resolve your issue.
+In general, you do not need to use this model. However, if you encounter abnormal results in the conversion process and the troubleshooting method mentioned earlier does not solve your problem, please provide this model to D-Robotics's technical support team, or submit your questions in the [**D-Robotics Official Technical Community**](https://developer.horizon.ai/). This will help you quickly resolve your issue.
 
 The process of generating \*\*\*_quantized_model.onnx can refer to the explanation in [**Conversion Interpretation**](#conversion_interpretation). 
 This model has completed the calibration and quantization process. 
 To evaluate the accuracy loss of the quantized model, you can read the content on model accuracy analysis and optimization in the following sections. 
 This model is necessary for accuracy verification. For specific usage, please refer to the introduction in [**Model Accuracy Analysis and Optimization**](#accuracy_evaluation).
 
-\*\*\*.bin is the model that can be loaded and run on the Horizon processor. 
+\*\*\*.bin is the model that can be loaded and run on the D-Robotics processor. 
 With the content introduced in the "Runtime Application Development Guide" section on on-board operation, 
-you can quickly deploy and run the model on the Horizon processor. However, to ensure that the model's performance and accuracy meet your expectations, we recommend completing the performance and accuracy analysis process introduced in [**Model Conversion**](#model_conversion) and [**Model Accuracy Analysis and Optimization**](#accuracy_evaluation) before entering the application development and deployment stages.
+you can quickly deploy and run the model on the D-Robotics processor. However, to ensure that the model's performance and accuracy meet your expectations, we recommend completing the performance and accuracy analysis process introduced in [**Model Conversion**](#model_conversion) and [**Model Accuracy Analysis and Optimization**](#accuracy_evaluation) before entering the application development and deployment stages.
 
 :::caution Note
 
-In general, the model that can be run on the Horizon processor can be obtained after the model conversion stage. However, to ensure that the performance and accuracy of the model meet the application requirements, Horizon recommends completing the performance evaluation and accuracy evaluation steps after each conversion.
+In general, the model that can be run on the D-Robotics processor can be obtained after the model conversion stage. However, to ensure that the performance and accuracy of the model meet the application requirements, D-Robotics recommends completing the performance evaluation and accuracy evaluation steps after each conversion.
 
 The model conversion process generates the onnx model, which is an intermediate product for users to verify the model's accuracy. Therefore, it does not guarantee its compatibility between versions. If you use the evaluation script in the example to evaluate the onnx model on a single image or on a test set, please use the onnx model generated by the current version of the tool for operation.
 :::
 
 ### Model Performance Analysis{#performance_evaluation}
-This section introduces how to use the tools provided by Horizon to evaluate the model's performance. By using these tools, you can obtain performance results that are consistent with actual on-board execution. If you find that the evaluation results do not meet your expectations, it is recommended that you try to solve the performance issues based on the optimization suggestions provided by Horizon, rather than extending the model's performance issues to the application development stage.
+This section introduces how to use the tools provided by D-Robotics to evaluate the model's performance. By using these tools, you can obtain performance results that are consistent with actual on-board execution. If you find that the evaluation results do not meet your expectations, it is recommended that you try to solve the performance issues based on the optimization suggestions provided by D-Robotics, rather than extending the model's performance issues to the application development stage.
 
 #### Performance Evaluation on Development Machine{#hb_perf}
 
@@ -1249,7 +1249,7 @@ If the model's time consumption is severe, you can also optimize the performance
 
 #### Model Performance Optimization
 
-Based on the performance analysis results above, you may find that the model performance is not as expected. This section introduces Horizon's suggestions and measures to improve model performance, including checking YAML configuration parameters, handling CPU operators, high-performance model design suggestions, and using Horizon-friendly structures and models.
+Based on the performance analysis results above, you may find that the model performance is not as expected. This section introduces D-Robotics's suggestions and measures to improve model performance, including checking YAML configuration parameters, handling CPU operators, high-performance model design suggestions, and using Horizon-friendly structures and models.
 
 :::caution Note
  Some of the modification suggestions in this section may affect the parameter space of the original floating-point model. Therefore, you need to retrain the model. To avoid repeatedly adjusting and training the model during performance tuning, it is recommended that you use random parameters to export the model for performance verification until you obtain satisfactory model performance.
@@ -1315,11 +1315,11 @@ If the operator does not have the BPU support capability, you need to perform co
 
 Based on performance evaluation results, the percentage of time consumed on the CPU may be small, indicating that the bottleneck is the long BPU inference time. In such cases, all BPU computing resources are already being used, so the next step is to improve resource utilization to optimize performance. Each processor has its own hardware characteristics, and how well the computation parameters of the algorithm model match the respective hardware characteristics directly affects the computational resource utilization. The higher the fit, the higher the utilization rate, and vice versa. 
 
-This section focuses on the hardware characteristics of Horizon Processors. Horizon provides processors designed to accelerate CNN (Convolutional Neural Network) processing, with the main computing resources focused on various convolution calculations. We recommend designing models that are primarily based on convolution calculations, as operators outside of convolution will reduce the utilization rate of computational resources, and the impact on performance varies depending on the specific OP.
+This section focuses on the hardware characteristics of D-Robotics Processors. D-Robotics provides processors designed to accelerate CNN (Convolutional Neural Network) processing, with the main computing resources focused on various convolution calculations. We recommend designing models that are primarily based on convolution calculations, as operators outside of convolution will reduce the utilization rate of computational resources, and the impact on performance varies depending on the specific OP.
 
 - **Other Suggestions**
 
-  The computation efficiency of `depthwise convolution` on Horizon Processors is close to 100%, so for models like `MobileNet`, BPU has an efficiency advantage.
+  The computation efficiency of `depthwise convolution` on D-Robotics Processors is close to 100%, so for models like `MobileNet`, BPU has an efficiency advantage.
 
   It is recommended to reduce the input and output dimensions of the BPU segment in model design to reduce the time consumed by quantization, dequantization nodes, and the bandwidth pressure on the hardware. For typical segmentation models, it is recommended to directly integrate the Argmax operator into the model itself. However, please note that Argmax can only be accelerated by BPU if the following conditions are met:
 
@@ -1328,13 +1328,13 @@ This section focuses on the hardware characteristics of Horizon Processors. Hori
 
 - **BPU-Oriented Efficiency Model Optimization**
 
-  Horizon's BPU has targeted optimizations for `depthwise convolution` and `group convolution`. Therefore, we recommend using models with a Depthwise+Pointwise structure, such as MobileNetv2, EfficientNet_lite, and the custom-designed VarGNet based on GroupConv, as the backbone of the model to achieve higher performance benefits.
+  D-Robotics's BPU has targeted optimizations for `depthwise convolution` and `group convolution`. Therefore, we recommend using models with a Depthwise+Pointwise structure, such as MobileNetv2, EfficientNet_lite, and the custom-designed VarGNet based on GroupConv, as the backbone of the model to achieve higher performance benefits.
 
-  We are continually exploring more model structures and business models, and we will provide more diverse models for your reference. These outputs will be periodically updated to https://github.com/HorizonRobotics-Platform/ModelZoo/tree/master. If you still cannot find a suitable model, please feel free to reach out to us on the [Horizon Official Technical Community](https://developer.horizon.ai). We will provide more targeted guidance and suggestions based on your specific problems. 
+  We are continually exploring more model structures and business models, and we will provide more diverse models for your reference. These outputs will be periodically updated to https://github.com/D-RoboticsRobotics-Platform/ModelZoo/tree/master. If you still cannot find a suitable model, please feel free to reach out to us on the [D-Robotics Official Technical Community](https://developer.horizon.ai). We will provide more targeted guidance and suggestions based on your specific problems. 
 
 ### Model Accuracy Analysis {#accuracy_evaluation}
 
-PTQ post-quantization method based on tens or hundreds of calibration data unavoidably incurs certain precision loss. Horizon's PTQ conversion tool has been extensively verified through practical use, and in most cases, the precision loss of the model can be kept within 1%.
+PTQ post-quantization method based on tens or hundreds of calibration data unavoidably incurs certain precision loss. D-Robotics's PTQ conversion tool has been extensively verified through practical use, and in most cases, the precision loss of the model can be kept within 1%.
 
 This section first introduces how to correctly analyze the model precision. If the evaluation shows that the precision is lower than expected, you can refer to the content in the **Precision Optimization** section for model precision optimization.
 
@@ -1347,18 +1347,18 @@ As mentioned earlier, the output of a successfully converted model includes the 
 - \*\*\*_quantized_model.onnx
 - \*\*\*.bin
 
-Although the final bin model is the one deployed on Horizon processors, for the convenience of quickly obtaining the model precision on Ubuntu/CentOS development machines, we also support using \*\*\*_quantized_model.onnx for precision testing. The quantized model \*\*\*_quantized_model.onnx has consistent precision performance with the bin model running on the X3 processor.
+Although the final bin model is the one deployed on D-Robotics processors, for the convenience of quickly obtaining the model precision on Ubuntu/CentOS development machines, we also support using \*\*\*_quantized_model.onnx for precision testing. The quantized model \*\*\*_quantized_model.onnx has consistent precision performance with the bin model running on the X3 processor.
 
-We recommend using the Horizon development library to load the ONNX model for inference. The basic process is as follows:
+We recommend using the D-Robotics development library to load the ONNX model for inference. The basic process is as follows:
 
 :::caution Note
   1. The sample code is applicable to quantized models as well as original and optimized models. You can prepare the data for model inference according to the input types and layout requirements of different models.
 
-  2. It is recommended to refer to the precision validation method of the sample models in the "horizon_model_convert_sample" package for Horizon model conversion, such as caffe, onnx, etc.: "04_inference.sh" and "postprocess.py".
+  2. It is recommended to refer to the precision validation method of the sample models in the "horizon_model_convert_sample" package for D-Robotics model conversion, such as caffe, onnx, etc.: "04_inference.sh" and "postprocess.py".
 :::
 
 ```
-# Load Horizon dependency libraries
+# Load D-Robotics dependency libraries
 from horizon_tc_ui import HB_ONNXRuntime
 
 # Prepare the feed_dict for model execution
@@ -1416,7 +1416,7 @@ During the design and training of the original floating-point model, the data pr
 3. Subtract the mean value across channels.
 4. Multiply the data by a scale factor.
 
-When using Horizon as the conversion tool for this original floating-point model, set ``input_type_train`` to ``bgr``, ``input_layout_train`` to ``NCHW``, ``input_type_rt`` to ``bgr``, and ``input_layout_rt`` to ``NHWC``.
+When using D-Robotics as the conversion tool for this original floating-point model, set ``input_type_train`` to ``bgr``, ``input_layout_train`` to ``NCHW``, ``input_type_rt`` to ``bgr``, and ``input_layout_rt`` to ``NHWC``.
 According to the rules mentioned in the [**Conversion Interpretation**](#conversion_interpretation) section, the input accepted by \*\*\*_quantized_model.onnx should be bgr_128 with NHWC arrangement.
 Based on the previous example code, the data processing in the `your_custom_data_prepare` part would be as follows:
 
@@ -1452,10 +1452,10 @@ return image
 Based on the previous precision analysis, if you determine that the model's quantization accuracy does not meet expectations, the following two main scenarios can be addressed:
 
 - **Significant Loss (greater than 4%)**
-  This issue is often caused by inappropriate YAML configuration or an imbalanced validation dataset. It is recommended to follow Horizon's suggested steps for troubleshooting one by one.
+  This issue is often caused by inappropriate YAML configuration or an imbalanced validation dataset. It is recommended to follow D-Robotics's suggested steps for troubleshooting one by one.
 
 - **Small Loss (1.5% to 3%)**
-  After excluding issues from scenario 1, if there's still a slight loss in accuracy, it's usually due to the model's inherent sensitivity. In this case, use Horizon's provided precision tuning tools for optimization.
+  After excluding issues from scenario 1, if there's still a slight loss in accuracy, it's usually due to the model's inherent sensitivity. In this case, use D-Robotics's provided precision tuning tools for optimization.
 
 - **After Trying 1 and 2**
   If the precision still doesn't meet expectations, try using our precision debugging tool for further attempts.
@@ -1486,11 +1486,11 @@ This part applies mainly to users who prepare calibration data and evaluation co
 
 - Incorrect `read_mode` specification: In `02_preprocess.sh`, you can specify the image reading method with the `--read_mode` parameter, supporting `opencv` and `skimage`. Similarly, in `preprocess.py`, ensure the `imread_mode` parameter is set correctly. Using `skimage` may read RGB channels with values between `0~1` as `float`, while `opencv` reads BGR with values between `0~255` as `uint8`.
 
-- Incorrect storage format for calibration datasets: Horizon uses `numpy.tofile` for saving calibration data, which does not preserve shape or type information. If `input_type_train` is not in "featuremap" format, the program will infer the data type based on whether the calibration data path contains "f32". From X3 algorithm toolchain v2.2.3a, a new parameter `cal_data_type` has been added to set the binary file data storage type.
+- Incorrect storage format for calibration datasets: D-Robotics uses `numpy.tofile` for saving calibration data, which does not preserve shape or type information. If `input_type_train` is not in "featuremap" format, the program will infer the data type based on whether the calibration data path contains "f32". From X3 algorithm toolchain v2.2.3a, a new parameter `cal_data_type` has been added to set the binary file data storage type.
 
-- Inconsistent transformer implementation: Horizon provides common preprocessing functions in `/horizon_model_convert_sample/01_common/python/data/transformer.py`. Differences in ResizeTransformer implementation might exist, such as using OpenCV's default interpolation method (linear). To modify other interpolation methods, edit the `transformer.py` source code and ensure consistency with the training-time preprocessing code. Refer to the [**Transformer Usage**](../../common_questions/toolchain#transposetransformer) section for more details.
+- Inconsistent transformer implementation: D-Robotics provides common preprocessing functions in `/horizon_model_convert_sample/01_common/python/data/transformer.py`. Differences in ResizeTransformer implementation might exist, such as using OpenCV's default interpolation method (linear). To modify other interpolation methods, edit the `transformer.py` source code and ensure consistency with the training-time preprocessing code. Refer to the [**Transformer Usage**](../../common_questions/toolchain#transposetransformer) section for more details.
 
-- Continue using the original float model's data processing library during the Horizon algorithm toolchain. For less robust models, discrepancies in resize, crop, and other common functions across libraries can affect precision.
+- Continue using the original float model's data processing library during the D-Robotics algorithm toolchain. For less robust models, discrepancies in resize, crop, and other common functions across libraries can affect precision.
 
 - Ensure a reasonable validation image set. The calibration dataset should contain around "a hundred" images, covering various scenarios in the data distribution. For multi-task or multi-class models, the validation set should cover all prediction branches or classes.
 
@@ -1524,7 +1524,7 @@ In general, to reduce the difficulty of accuracy tuning, it is recommended that 
 
 - To specify operators running on the CPU, use the ``run_on_cpu`` parameter in the YAML file. Specify the node name to indicate the corresponding operator running on the CPU (e.g., run_on_cpu: conv_0).
 
-- If there is an error during model compilation after specifying run_on_cpu, please contact the Horizon technical support team.
+- If there is an error during model compilation after specifying run_on_cpu, please contact the D-Robotics technical support team.
 
 ##### Accuracy Debugging ToolsAfter trying the above two methods for accuracy fine-tuning, if your accuracy still does not meet expectations, we provide an accuracy debug tool to help you locate the problem.
 
@@ -1544,7 +1544,7 @@ During the process of model conversion, accuracy loss may occur due to the quant
 
 2. Accumulated errors in each node of the model result in large calibration errors for the overall model, mainly including: accumulated errors caused by weight quantization, accumulated errors caused by activation quantization, and accumulated errors caused by full quantization.
 
-In response to this situation, Horizon provides an accuracy debug tool to help you independently locate accuracy issues that occur during the model quantization process.
+In response to this situation, D-Robotics provides an accuracy debug tool to help you independently locate accuracy issues that occur during the model quantization process.
 This tool can assist you in analyzing the quantization error of the calibration model at the node level and ultimately help you quickly identify nodes with accuracy exceptions.
 
 The accuracy debug tool provides various analysis functions for your use, such as:
@@ -2276,7 +2276,7 @@ When all parameters are set to defaults, the tool performs the following steps:
 
 If `node_type='node'`, the tool retrieves the top 5 nodes and their corresponding calibration nodes, displaying data distributions and box plots.
 
-Based on previous optimization experience, this strategy covers most scenarios. If issues persist, follow the [**Precision Optimization Checklist**](../../common_questions/toolchain#checklist) to gather detailed model configuration information, ensure all troubleshooting steps have been completed, and report the filled checklist, the original float model file, and relevant configuration files to the Horizon support team or the [**Horizon Official Technical Community**](https://developer.horizon.ai/) for further assistance.
+Based on previous optimization experience, this strategy covers most scenarios. If issues persist, follow the [**Precision Optimization Checklist**](../../common_questions/toolchain#checklist) to gather detailed model configuration information, ensure all troubleshooting steps have been completed, and report the filled checklist, the original float model file, and relevant configuration files to the D-Robotics support team or the [**D-Robotics Official Technical Community**](https://developer.horizon.ai/) for further assistance.
 
 
 
@@ -2293,7 +2293,7 @@ This section primarily introduces the usage of debugging tools other than model 
 
 #### **hb_perf** Tool
 
-**hb_perf** is a tool for analyzing the performance of Horizon's quantized mixed models.
+**hb_perf** is a tool for analyzing the performance of D-Robotics's quantized mixed models.
 
 - Usage
 

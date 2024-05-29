@@ -7,7 +7,7 @@ sidebar_position: 8
 ## Data Layout
 
 To improve computational efficiency, hardware devices adopt special data layout to ensure that the feature maps and kernels used for convolution operations within the same batch are placed adjacent to each other in memory.
-Below is a brief introduction to the concept of data layout in the Horizon Processor.
+Below is a brief introduction to the concept of data layout in the D-Robotics Processor.
 
 Variables in a neural network model can be represented by a 4-dimensional tensor, where each number is an element of this tensor, and we call it the natural layout.
 By arranging the elements of different dimensions closely together according to certain rules, we form independent small blocks, and then treat these small blocks as new elements to compose a new 4-dimensional tensor, which we call a tensor with data layout.

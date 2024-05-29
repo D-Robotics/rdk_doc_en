@@ -120,7 +120,7 @@ To obtain the horizon_runtime_sample package, please refer to the [Deliverables 
 
 #### Compilation
 
-Compilation requires the installation of cross-compilation tools: ``aarch64-linux-gnu-g++``, ``aarch64-linux-gnu-gcc``. Please use the Horizon provided development machine Docker image for compilation directly. Please read the [**Environment Installation**](/toolchain_development/intermediate/environment_config#machine_deploy) chapter for obtaining and using the development machine Docker environment;
+Compilation requires the installation of cross-compilation tools: ``aarch64-linux-gnu-g++``, ``aarch64-linux-gnu-gcc``. Please use the D-Robotics provided development machine Docker image for compilation directly. Please read the [**Environment Installation**](/toolchain_development/intermediate/environment_config#machine_deploy) chapter for obtaining and using the development machine Docker environment;
 According to the situation of the development board used, please use the ``build_xj3.sh`` or ``build_ultra.sh`` script under the horizon_runtime_sample/code directory to compile the executable program in the development board environment with one click. The executable program and corresponding dependencies will be automatically copied to the ``xj3/script`` directory under the ``aarch64`` directory or the ``ultra/script`` directory under the ``aarch64`` directory.
 
 :::info Note
@@ -496,7 +496,7 @@ For the configuration of model inference DNN API logs, please refer to the "Conf
 
 :::caution Note:
 
-1. The data in the table are measured results on the Horizon RDK X3 development board, and the test models are from the horizon_model_convert_sample model example package.
+1. The data in the table are measured results on the D-Robotics RDK X3 development board, and the test models are from the horizon_model_convert_sample model example package.
 
 2. For the BPU/CPU hybrid heterogeneous models in the model example package, the frame consumption time is mainly composed of the input quantization CPU node, model BPU operators, model CPU operators, output dequantization CPU node, CPU post-processing, etc. The specific explanation is as follows:
 
@@ -512,9 +512,9 @@ For the configuration of model inference DNN API logs, please refer to the "Conf
 
    c. Output dequantization CPU node: completes the int8 to float32 output dequantization operation. The quantization time is proportional to the output shape size.
 
-   d. Horizon currently supports manually removing the quantization/dequantization nodes of a model and integrating them into pre- and post-processing code by users to reduce the overhead of duplicate data traversal. Taking the EfficientDet model as an example, after removing the dequantization node and incorporating it into the post-processing, the inference performance is improved from 66 FPS to 100 FPS.
+   d. D-Robotics currently supports manually removing the quantization/dequantization nodes of a model and integrating them into pre- and post-processing code by users to reduce the overhead of duplicate data traversal. Taking the EfficientDet model as an example, after removing the dequantization node and incorporating it into the post-processing, the inference performance is improved from 66 FPS to 100 FPS.
 
-   e. Currently, the post-processing of the Horizon sample models has not been specifically optimized for performance. You can use optimization methods such as approximate and efficient implementation according to your actual needs to accelerate the code at the code level.
+   e. Currently, the post-processing of the D-Robotics sample models has not been specifically optimized for performance. You can use optimization methods such as approximate and efficient implementation according to your actual needs to accelerate the code at the code level.
 
 3. In practical applications, the BPU and CPU can run concurrently to improve the overall inference speed.
 
@@ -531,7 +531,7 @@ For the configuration of model inference DNN API logs, please refer to the "Conf
 
 #### Introduction
 
-This section describes the specific usage of the ai_benchmark example package for public model accuracy and performance evaluation. The example package provides source code, executable programs, and evaluation scripts. Developers can directly experience and develop embedded applications based on these examples on the Horizon development board, reducing the development threshold.
+This section describes the specific usage of the ai_benchmark example package for public model accuracy and performance evaluation. The example package provides source code, executable programs, and evaluation scripts. Developers can directly experience and develop embedded applications based on these examples on the D-Robotics development board, reducing the development threshold.
 
 The example package provides performance and accuracy evaluation examples for common classification, detection, and segmentation models. Please refer to the following content for details.
 
@@ -678,8 +678,8 @@ To obtain the ai_benchmark example package for public model accuracy and perform
 
 
 - **code**: This directory contains the source code for the model evaluation program, used to assess model performance and accuracy.
-- **xj3**: Provides pre-compiled applications and various benchmark scripts to test the performance and accuracy of multiple models on the Horizon BPU, specifically for **RDK X3**.
-- **ultra**: Offers pre-compiled applications and benchmark scripts to evaluate the performance and accuracy of various models on the Horizon BPU, designed for **RDK Ultra**.
+- **xj3**: Provides pre-compiled applications and various benchmark scripts to test the performance and accuracy of multiple models on the D-Robotics BPU, specifically for **RDK X3**.
+- **ultra**: Offers pre-compiled applications and benchmark scripts to evaluate the performance and accuracy of various models on the D-Robotics BPU, designed for **RDK Ultra**.
 - **build_ptq_xj3.sh**: One-click build script for the development board program (for **RDK X3**).
 - **build_ptq_ultra.sh**: One-click build script for the development board program (for **RDK Ultra**).
 - **deps/deps_gcc9.3**: Dependencies required for the example code, primarily including:
@@ -749,7 +749,7 @@ Please download them in a Linux environment using the following links:
 
 #### Compiler Environment Preparation
 
-The compilation requires the installation of the cross-compilation tool `gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu` in the current environment. Please use the Docker image provided by Horizon for development machine, and directly compile and use it. Read the chapter [**Environment Installation**](/toolchain_development/intermediate/environment_config#machine_deploy) for obtaining and using the development machine Docker environment;
+The compilation requires the installation of the cross-compilation tool `gcc-ubuntu-9.3.0-2020.03-x86_64-aarch64-linux-gnu` in the current environment. Please use the Docker image provided by D-Robotics for development machine, and directly compile and use it. Read the chapter [**Environment Installation**](/toolchain_development/intermediate/environment_config#machine_deploy) for obtaining and using the development machine Docker environment;
 Please use the script `build_ptq_xj3.sh` or `build_ptq_ultra.sh` under the code directory to compile the executable program in the development board environment. The executable program and its corresponding dependencies will be automatically copied to the directory `xj3/ptq/script` under the `aarch64` directory or the directory `ultra/ptq/script` under the `aarch64` directory.
 
 :::info Note
@@ -1530,7 +1530,7 @@ By setting the environment variable "export HB_DNN_DUMP_PATH=${path}", the input
 
 ### Overview
 
-This section introduces a fast verification tool for model inference on Horizon Algorithm Toolchain. This tool allows developers to quickly obtain information about the "xxx.bin" model, model inference performance, and model debugging.
+This section introduces a fast verification tool for model inference on D-Robotics Algorithm Toolchain. This tool allows developers to quickly obtain information about the "xxx.bin" model, model inference performance, and model debugging.
 
 ### Instructions for hrt_model_exec Tool
 
@@ -1588,7 +1588,7 @@ This section describes the specific usage of the three subfunctions of the ``hrt
 
 This parameter is used to obtain model information. The supported models are QAT models and PTQ models.
 This parameter is used together with ``model_file`` to obtain detailed information about the model;
-The model information includes the model's input and output information ``hbDNNTensorProperties`` and the model's segment information ``stage``; The model's segment information is: a picture can be inferred in multiple stages. The stage information is [x1, y1, x2, y2], which are the coordinates of the top left and bottom right corners of the picture inference. Currently, Horizon RDK Ultra's Bayes architecture supports inference of such segmented models, and the models on RDK X3 are all 1-stage models.
+The model information includes the model's input and output information ``hbDNNTensorProperties`` and the model's segment information ``stage``; The model's segment information is: a picture can be inferred in multiple stages. The stage information is [x1, y1, x2, y2], which are the coordinates of the top left and bottom right corners of the picture inference. Currently, D-Robotics RDK Ultra's Bayes architecture supports inference of such segmented models, and the models on RDK X3 are all 1-stage models.
 
 :::tip Tips
 

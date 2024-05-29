@@ -703,7 +703,7 @@ In addition to plugin version saved, this function is same as torch.jit.save.
 - **_extra_files** – Map from filename to contents which will be stored as part of f.
 
 
-## Horizon operator
+## D-Robotics operator
 
 ```python
 horizon_plugin_pytorch.nn.functional.filter(*inputs: Union[Tuple[torch.Tensor], Tuple[horizon_plugin_pytorch.qtensor.QTensor]], threshold: float, idx_range: Optional[Tuple[int, int]] = None) → List[List[torch.Tensor]]
@@ -812,7 +812,7 @@ Perform multiplicative patch comparisons between two feature maps.
 forward(data1: Union[torch.Tensor, horizon_plugin_pytorch.qtensor.QTensor], data2: Union[torch.Tensor, horizon_plugin_pytorch.qtensor.QTensor]) → torch.Tensor
 ```
 
-Forward for Horizon Correlation.
+Forward for D-Robotics Correlation.
 
 **parameters**
 
@@ -934,7 +934,7 @@ class horizon_plugin_pytorch.nn.PointPillarsScatter(output_shape=None)
 forward(voxel_features: torch.Tensor, coords: torch.Tensor, output_shape: Optional[Union[torch.Tensor, list, tuple]] = None) → torch.Tensor
 ```
 
-Forward of Horizon PointPillarsScatter.
+Forward of D-Robotics PointPillarsScatter.
 
 **parameters**
 
@@ -1011,7 +1011,7 @@ output data in format
 
 Tensor[num_batch, post_nms_top_k, 6]
 
-horizon plugin.
+D-Robotics plugin.
 
 ```python
 horizon_plugin_pytorch.bgr2centered_gray(input: torch.Tensor) → torch.Tensor
@@ -1293,7 +1293,7 @@ Dump advices for improving performance on BPU.
 
 - **example_inputs** (A tuple of example inputs, in torch.tensor format.) – For jit.trace and shape inference.
 
-- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use D-Robotics plugin global march.
 
 - **input_source** (Specify input features' sources(ddr/resizer/pyramid)) –
 
@@ -1323,7 +1323,7 @@ Compile the nn.Module or jit.ScriptModule.
 
 - **hbm** (Specify the output path of hbdk-cc.) –
 
-- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use D-Robotics plugin global march.
 
 - **name** (Name of the model, recorded in hbm.) – Can be obtained by hbdk-disas or hbrtGetModelNamesInHBM in runtime.
 
@@ -1367,7 +1367,7 @@ Export the nn.Module or jit.ScriptModule to hbdk3.HBIR.
 
 - **hbir** (Specify the output path of hbir.) –
 
-- **march** (Specify march to export hbir.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify march to export hbir.) – Valid options are bayes and bernoulli2. If not provided, use D-Robotics plugin global march.
 
 **Return **
 **Return Type**
@@ -1386,7 +1386,7 @@ Estimate the performance of nn.Module or jit.ScriptModule.
 
 - **example_inputs** (A tuple of example inputs, in torch.tensor format.) – For jit.trace and shape inference.
 
-- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use D-Robotics plugin global march.
 
 - **out_dir** (Specify the output directry to hold the performance results.) –
 
@@ -1429,7 +1429,7 @@ Visualize nn.Module or jit.ScriptModule at the view of HBDK.
 
 - **example_inputs** (A tuple of example inputs, in torch.tensor format.) – For jit.trace and shape inference.
 
-- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use horizon plugin global march.
+- **march** (Specify the target march of bpu.) – Valid options are bayes and bernoulli2. If not provided, use D-Robotics plugin global march.
 
 - **save_path** (Specify path to save the plot image.) –
 

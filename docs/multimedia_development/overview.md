@@ -5,11 +5,11 @@ sidebar_position: 1
 
 ## Overview
 
-The multimedia interface provided by Horizon includes system control, video input, video processing (ISP image processor, cropping, scaling, rotation, correction), H.264/H.265/JPEG/MJPEG encoding and decoding, video output display, etc. The interface is abstracted and encapsulated, which is a collection of low-level interfaces. These low-level interfaces support more flexible application development by better controlling the underlying hardware modules.
+The multimedia interface provided by D-Robotics includes system control, video input, video processing (ISP image processor, cropping, scaling, rotation, correction), H.264/H.265/JPEG/MJPEG encoding and decoding, video output display, etc. The interface is abstracted and encapsulated, which is a collection of low-level interfaces. These low-level interfaces support more flexible application development by better controlling the underlying hardware modules.
 
 ## Multimedia System Architecture
 
-The main internal processing flow of Horizon's multimedia processing is shown in the following figure, which is mainly divided into video input (VIN), video processing (VPS), video encoding (VENC), video decoding (VDEC), video output (VOT), region processing (REGION), AI algorithm inference (BPU), and other modules.
+The main internal processing flow of D-Robotics's multimedia processing is shown in the following figure, which is mainly divided into video input (VIN), video processing (VPS), video encoding (VENC), video decoding (VDEC), video output (VOT), region processing (REGION), AI algorithm inference (BPU), and other modules.
 
 ![X3-ss_mm_system_topology](./image/overview/X3-ss_mm_system_topology-16485465559782.png)
 
@@ -37,7 +37,7 @@ The main internal processing flow of Horizon's multimedia processing is shown in
 | GDC          | Geometrical Distortion Correction   | Geometrical distortion correction.                            |
 | PYM          | Pyramid                             | Image pyramid.                                               |
 | OSD          | On Screen Display                   | Video image overlay display.                                 |
-| BPU          | Brain Process Unit                  | Programmable AI acceleration engine independently developed by Horizon Robotics. |
+| BPU          | Brain Process Unit                  | Programmable AI acceleration engine independently developed by D-Robotics. |
 | HAL          | Hardware Abstraction Layer          | Hardware abstraction layer.                                  |
 | FW           | Firmware                            | Firmware.                                                    |
 | Sensor       | Sensor                              | Unless otherwise specified, it refers to CMOS image sensors.  |

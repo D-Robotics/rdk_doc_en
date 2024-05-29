@@ -3,11 +3,11 @@ sidebar_position: 1
 ---
 # Environment Installation
 
-This chapter mainly introduces the complete deployment method of the Horizon algorithm toolchain development environment.
+This chapter mainly introduces the complete deployment method of the D-Robotics algorithm toolchain development environment.
 
 ## Instructions for Using Deliverables {#deliverables_instructions}
 
-Before deploying the algorithm toolchain environment, please download the [**Embedded Application Development Sample Delivery Package**](https://pan.horizon.ai/index.php/s/iZwyzXoJLs8Btme) provided by Horizon to the Linux development machine environment.
+Before deploying the algorithm toolchain environment, please download the [**Embedded Application Development Sample Delivery Package**](https://pan.horizon.ai/index.php/s/iZwyzXoJLs8Btme) provided by D-Robotics to the Linux development machine environment.
 
 ### Description of the Directory Structure of the Sample Package Source Code
 
@@ -33,11 +33,11 @@ The directory structure after unpacking is as follows:
 
 ## Development Machine Deployment {#machine_deploy}
 
-For the environment deployment of the development machine, Horizon supports Docker deployment.
+For the environment deployment of the development machine, D-Robotics supports Docker deployment.
 
 ### Development Machine Preparation
 
-In order to use the algorithm toolchain smoothly, Horizon recommends that your selected development machine should meet the following requirements:
+In order to use the algorithm toolchain smoothly, D-Robotics recommends that your selected development machine should meet the following requirements:
 
   | Hardware/Operating System | Requirements                                 |
   |---------------|------|
@@ -48,9 +48,9 @@ In order to use the algorithm toolchain smoothly, Horizon recommends that your s
 
 ### Using Docker Environment
 
-To help you quickly use the algorithm toolchain, Horizon provides Docker images with complete development environments, which greatly simplifies the deployment process.
+To help you quickly use the algorithm toolchain, D-Robotics provides Docker images with complete development environments, which greatly simplifies the deployment process.
 
-Before reading this section, we hope that Docker's basic environment has been preinstalled on your development machine. The Docker basic environment information required by Horizon is as follows:
+Before reading this section, we hope that Docker's basic environment has been preinstalled on your development machine. The Docker basic environment information required by D-Robotics is as follows:
 
 - Docker (>=1.12, recommended version 18.03.0-ce), installation guide: https://docs.docker.com/install/
 - NVIDIA Docker (2.0.3), installation guide [**NVIDIA/nvidia-docker**](https://github.com/nvidia/nvidia-docker/wiki).
@@ -66,7 +66,7 @@ After completing the Docker environment installation, you need to add the non-ro
 
 The address of the Docker image needed in this section is as follows:
 
-- [**Horizon Docker Hub GPU Docker**](https://hub.docker.com/r/openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu)
+- [**D-Robotics Docker Hub GPU Docker**](https://hub.docker.com/r/openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu)
 
 The naming format of the image file is:
 
@@ -75,9 +75,9 @@ The naming format of the image file is:
 
 :::tip Tip
 
-  When executing the command, replace `{version}` with **the latest version of the Docker image** you obtained, for example: [**Horizon docker hub GPU Docker**](https://hub.docker.com/r/openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu) The current latest version is `openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu:v1.0.0`.
+  When executing the command, replace `{version}` with **the latest version of the Docker image** you obtained, for example: [**D-Robotics docker hub GPU Docker**](https://hub.docker.com/r/openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu) The current latest version is `openexplorer/ai_toolchain_ubuntu_20_x3j5_gpu:v1.0.0`.
 
-  For the local Docker image package version, you can contact Horizon Technical Support Team to obtain it.
+  For the local Docker image package version, you can contact D-Robotics Technical Support Team to obtain it.
 
   A development machine does not necessarily have a GPU card. Generally, a CPU development machine is used to load Docker images for model conversion!
 :::

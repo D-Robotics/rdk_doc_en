@@ -25,7 +25,7 @@ Open the algorithm model specified by `model_file_name` and initialize an infere
 
 **【Parameters】**
 
-- `model_file_name`: The algorithm model file, which needs to be converted by Horizon AI algorithm toolchain or trained to obtain a fixed-point model.
+- `model_file_name`: The algorithm model file, which needs to be converted by D-Robotics AI algorithm toolchain or trained to obtain a fixed-point model.
 
 **【Return Type】**
 

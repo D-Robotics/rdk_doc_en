@@ -7,19 +7,19 @@ sidebar_position: 2
 ## Overview
 
 
-This guide is intended to introduce the usage process of the PTQ method after training in the Horizon algorithm toolchain. If you are a first-time user of the Horizon algorithm toolchain, it is recommended that you follow the steps in this guide to learn. If you have completed the learning of the content in the Getting Started Guide section, you can refer to the steps in the [**Quick Experiments**](#quick_experiments) section of this guide to convert and run private models on the board.
-If you need to learn more about the Horizon algorithm toolchain, please refer to the [**Intermediate Guide**](./intermediate) section.
+This guide is intended to introduce the usage process of the PTQ method after training in the D-Robotics algorithm toolchain. If you are a first-time user of the D-Robotics algorithm toolchain, it is recommended that you follow the steps in this guide to learn. If you have completed the learning of the content in the Getting Started Guide section, you can refer to the steps in the [**Quick Experiments**](#quick_experiments) section of this guide to convert and run private models on the board.
+If you need to learn more about the D-Robotics algorithm toolchain, please refer to the [**Intermediate Guide**](./intermediate) section.
 
 
 ## Environment Installation {#env_install}
 
 
-This section mainly introduces the necessary environmental preparation work before using the Horizon algorithm toolchain.
+This section mainly introduces the necessary environmental preparation work before using the D-Robotics algorithm toolchain.
 
 
 **Hardware Environment**
 
-In order to use the Horizon algorithm toolchain smoothly, Horizon recommends that the development machine you choose should meet the following requirements:
+In order to use the D-Robotics algorithm toolchain smoothly, D-Robotics recommends that the development machine you choose should meet the following requirements:
 
 
 
@@ -47,7 +47,7 @@ In order to use the Horizon algorithm toolchain smoothly, Horizon recommends tha
 
 :::tip Tip
   1. If you need more examples of public model conversion, you can execute the command: ``wget -c ftp://xj3ftp@vrftp.horizon.ai/model_convert_sample/horizon_model_convert_sample.tar.gz --ftp-password=xj3ftp@123$%`` to obtain them.
-  2. Horizon also provides a Docker image that supports model conversion. If you need to use the Docker environment, please read the [**Intermediate Guide-Using Docker Environment**](./intermediate/environment_config#using-docker-environment) section.- 
+  2. D-Robotics also provides a Docker image that supports model conversion. If you need to use the Docker environment, please read the [**Intermediate Guide-Using Docker Environment**](./intermediate/environment_config#using-docker-environment) section.- 
 :::
 
   2. Create the model conversion environment:
@@ -97,12 +97,12 @@ After successful installation, you can type the command hb_mapper --help to veri
 
   When performing model conversion later, please first use the command "source activate horizon_bpu" or "conda activate horizon_bpu" to enter the model conversion environment!
 
-  The overall size of the Horizon AI Toolchain installation package is about 200M. The download of the installation package and the installation of dependencies are affected by network speed. The entire installation process takes about 20 minutes. Please be patient until the installation is complete.
+  The overall size of the D-Robotics AI Toolchain installation package is about 200M. The download of the installation package and the installation of dependencies are affected by network speed. The entire installation process takes about 20 minutes. Please be patient until the installation is complete.
 :::
   
   ## Quick Experience {#quick_experiments}
 
-In this chapter, we introduce the basic usage process of the Horizon algorithm toolchain PTQ solution, so that you can quickly get started. Here we take yolov5s model running on the RDK X3 development board as an example to demonstrate the usage for you. For more detailed content of the Horizon algorithm toolchain PTQ solution, please read the [**Advanced Guide - PTQ Principles and Steps**](/toolchain_development/intermediate/ptq_process) chapter.
+In this chapter, we introduce the basic usage process of the D-Robotics algorithm toolchain PTQ solution, so that you can quickly get started. Here we take yolov5s model running on the RDK X3 development board as an example to demonstrate the usage for you. For more detailed content of the D-Robotics algorithm toolchain PTQ solution, please read the [**Advanced Guide - PTQ Principles and Steps**](/toolchain_development/intermediate/ptq_process) chapter.
 
 :::tip Tips
   To convert models supported by RDK Ultra, replace the ``0x_xx_X3.sh`` script command in the steps of the following chapters with the ``0x_xx_Ultra.sh`` script command for model conversion.
@@ -144,7 +144,7 @@ If the above log does not appear after executing the command, please read the [*
 
 ### Model Verification
 
-If the floating-point model sample is ready, follow the steps below to verify the model to ensure that it complies with the support constraints of the Horizon RDK X3 processor.
+If the floating-point model sample is ready, follow the steps below to verify the model to ensure that it complies with the support constraints of the D-Robotics RDK X3 processor.
 
 -   Enter the yolov5s model directory of the floating-point model conversion example
 
@@ -162,7 +162,7 @@ cd yolov5s_v2.0/04_detection/03_yolov5s/mapper
 After the command execution is completed, if the following log appears, it indicates that the model validation is successful
 
 ```bash
-    2022-12-21 22:29:51,153 INFO [Wed Dec 21 22:29:51 2022] End to Horizon NN Model Convert.
+    2022-12-21 22:29:51,153 INFO [Wed Dec 21 22:29:51 2022] End to D-Robotics NN Model Convert.
     2022-12-21 22:29:51,181 INFO ONNX model output num : 3
     2022-12-21 22:29:51,219 INFO End model checking....
 ```
@@ -205,7 +205,7 @@ After the model conversion is completed, the model files and static performance 
 -   torch-jit-export_subgraph_0.json        # Static performance evaluation file
 -   hb_model_modifier.log                   # Log information generated during the model conversion steps
 -   cache.json                              # Cache file (automatically generated when RDK Ultra optimization level is configured as O3)
--   yolov5s_672x672_nv12.bin     # Model file for loading and running on the Horizon processor
+-   yolov5s_672x672_nv12.bin     # Model file for loading and running on the D-Robotics processor
 -   yolov5s_672x672_nv12_calibrated_model.onnx      # Intermediate model file for subsequent model accuracy verification
 -   yolov5s_672x672_nv12_optimized_float_model.onnx # Intermediate model file for subsequent model accuracy verification
 -   yolov5s_672x672_nv12_original_float_model.onnx # Intermediate model file for subsequent model accuracy verification
@@ -257,7 +257,7 @@ The table below provides performance and accuracy metrics of typical deep neural
 
 **Note:**
 
-1. The data in the table are measured results on the Horizon RDK X3 development board, and the test models are from the [horizon_model_convert_sample](./beginner) model example package.
+1. The data in the table are measured results on the D-Robotics RDK X3 development board, and the test models are from the [horizon_model_convert_sample](./beginner) model example package.
 
 2. For the BPU/CPU hybrid heterogeneous models in the model example package, the time consumption of a single frame mainly consists of the following modules: input quantization CPU node, model BPU operator, model CPU operator, output dequantization CPU node, and CPU post-processing. The details are explained as follows:
 
@@ -273,8 +273,8 @@ The table below provides performance and accuracy metrics of typical deep neural
 
    c. Output dequantization CPU node: It performs the output dequantization operation from int8 to float32. The quantization time consumption is proportional to the output shape.
 
-   d. Currently, Horizon supports manually removing the quantization/dequantization nodes of the model and integrating them into the pre- and post-processing code by users to reduce the overhead of redundant data traversal. Taking the EfficientDet model as an example, by removing the dequantization node and integrating it into the post-processing, the inference performance has increased from 66 FPS to 100 FPS.
+   d. Currently, D-Robotics supports manually removing the quantization/dequantization nodes of the model and integrating them into the pre- and post-processing code by users to reduce the overhead of redundant data traversal. Taking the EfficientDet model as an example, by removing the dequantization node and integrating it into the post-processing, the inference performance has increased from 66 FPS to 100 FPS.
 
-   e. Currently, the post-processing of Horizon example models has not been specifically optimized for performance. You can use optimization methods such as approximate efficient implementation according to your actual requirements for code-level acceleration.
+   e. Currently, the post-processing of D-Robotics example models has not been specifically optimized for performance. You can use optimization methods such as approximate efficient implementation according to your actual requirements for code-level acceleration.
 
 3. In practical applications, BPU and CPU can run concurrently to improve overall inference speed.

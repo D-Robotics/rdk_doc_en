@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 # 7.2 Sample Program
-This chapter briefly describes the Horizon multimedia application examples. The source code involved can be obtained by running `sudo apt install hobot-multimedia-samples` and installed under the directory `/app/multimedia_samples`.
+This chapter briefly describes the D-Robotics multimedia application examples. The source code involved can be obtained by running `sudo apt install hobot-multimedia-samples` and installed under the directory `/app/multimedia_samples`.
 ## Instructions for using get_sif_data{#get_sif_data}
 
 ### Program Function
@@ -119,7 +119,7 @@ Upon successful initialization, the program automatically captures and saves the
 chmod +x get_sif_data
 ./get_sif_data
 
-Horizon Robotics Sensor Test Tools V1.0
+D-Robotics Sensor Test Tools V1.0
 
 ********************** Sensor Lists *************************
         0 -- IMX415
@@ -332,7 +332,7 @@ If the initialization is successful, the first frame image (`pipe0_1920x1080_fra
 chmod +x get_isp_data
 ./get_isp_data
 
-Horizon Robotics Sensor Test Tools V1.0
+D-Robotics Sensor Test Tools V1.0
 
 ********************** Sensor Lists *************************
         0 -- IMX415

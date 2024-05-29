@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Accessories List
 
-The Certified Accessories List refers to third-party accessories that are officially endorsed by Horizon for the RDK X3 development board. It covers various categories such as basic components (power supply, enclosure, cooler), cameras, displays, and more. This list is regularly updated with additional model options being added over time.
+The Certified Accessories List refers to third-party accessories that are officially endorsed by D-Robotics for the RDK X3 development board. It covers various categories such as basic components (power supply, enclosure, cooler), cameras, displays, and more. This list is regularly updated with additional model options being added over time.
 
 ### Basic Accessories{#basic_accessories}
 
@@ -49,6 +49,5 @@ The Certified Accessories List refers to third-party accessories that are offici
 
 | Type | Supplier | Model | Description | Purchase Link |
 | --- | --------- | -------- | --------------- | --------- |
-| Audio Adapter Board | Weishi | Audio Driver HAT | Supports 4MIC circular recording, dual-channel playback, audio loopback | [Buy Now](https://www.waveshare.net/shop/Audio-Driver-HAT.htm)  |
 | Audio Adapter Board | Weishi | WM8960 Audio HAT | Dual-channel recording and playback, compatible with RDK X3 2.0, RDK X3 Module | [Buy Now](https://www.waveshare.net/shop/WM8960-Audio-HAT.htm)  |
 

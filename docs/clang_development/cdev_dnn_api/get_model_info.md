@@ -18,7 +18,7 @@ Retrieve the list of names and the count of models pointed to by ``packedDNNHand
 
 - [out] ``modelNameList`` : List of model names.
 - [out] ``modelNameCount`` : Number of model names.
-- [in]  ``packedDNNHandle``   : Horizon DNN handle that points to multiple models.
+- [in]  ``packedDNNHandle``   : D-Robotics DNN handle that points to multiple models.
 
 **[Return Type]**
 

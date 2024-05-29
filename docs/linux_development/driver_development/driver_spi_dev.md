@@ -152,7 +152,7 @@ static int hb_spi_probe(struct platform_device *pdev)
 
 ### Hardware initialization
 
-The hardware initialization function is as follows. The meaning of the registers can be confirmed by checking with the Horizon related information.
+The hardware initialization function is as follows. The meaning of the registers can be confirmed by checking with the D-Robotics related information.
 
 ```c
 /* spi hw init */

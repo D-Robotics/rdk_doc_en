@@ -100,7 +100,7 @@ Execute an ROI inference task based on the input parameters. The caller can use 
 - ``resizer_count``: Number of resizer input-source branches in the model (≤input_count). When the model processes a batch of data, one resizer input-source branch handles one roi.
 - ``roiCount``: Total number of rois, its value is ``batch * resizer_count``
 - ``data_batch``: The number of data batches that the model needs to infer, its value is ``roiCount / resizer_count``
-- ``model_batch``: The batch size used internally by the model, i.e., the batch_size input to the model during inference. Horizon Toolchain supports compiling the model as a batch model.
+- ``model_batch``: The batch size used internally by the model, i.e., the batch_size input to the model during inference. D-Robotics Toolchain supports compiling the model as a batch model.
 
 Input/Output Example Explanation:
 
