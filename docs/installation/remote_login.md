@@ -16,7 +16,7 @@ Before remote login via network, the development board needs to be connected to 
 
 ## Serial Port Login{#login_uart}
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196550506&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dYV5nw_PDMw?si=SzkP6H_QaL1OPft9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Before using serial port login, it is necessary to confirm that the serial port cable of the development board is correctly connected to the computer. The connection method can refer to the [Serial Port Debugging](/installation/hardware_interface#debug_uart) chapter. Serial port login requires a PC terminal tool. The commonly used tools are `Putty`, `MobaXterm`, etc. Users can choose according to their own habits. The port configuration process is similar for different tools. Below is an example with `MobaXterm` to explain the process of creating a new serial port connection:
 
@@ -72,7 +72,9 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 ```
 
 ## Network Status Confirmation
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196554007&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Of4mN0MaoiU?si=3wALa0UP2gxlhm26" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 Before using remote login, it is necessary to ensure that the communication between the computer and the development board is normal. If it cannot be pinged, please follow the steps below to confirm:
 
 - Confirm the IP address configuration of the development board and the computer. Generally, the first three segments need to be the same. For example, the development board: `192.168.1.10` and the computer: `192.168.1.100`.
@@ -91,7 +93,7 @@ If you want to configure the wired network of the development board to obtain IP
 
 ## VNC Login
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196553936&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/whwi7O2XBKs?si=dwqJ5RjwjhUqyd8y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This section is for users using the Ubuntu Desktop system version, and it explains how to use "VNC Viewer" to achieve remote desktop login. "VNC Viewer" is a graphical desktop sharing software that allows you to remotely log in and control the desktop of the device on your computer. With this software, you can preview the system desktop of the development board on your computer screen and use your computer's mouse and keyboard for remote operation. By using VNC Viewer, you can achieve the same effect as local operation on the development board. You can download VNC Viewer from the following link: [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/).
 
