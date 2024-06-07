@@ -7,7 +7,7 @@ This section mainly introduces the methods for modifying the wired and wireless 
 
 ## Wired Network {#config_ethnet}
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557461&page=11" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/omaAU6sab2A?si=5h8H4if2XBdZRqaD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The default wired network configuration of the development board uses static IP configuration, and the initial IP address is `192.168.1.10`. Users can switch between static and DHCP modes by the following methods.
 
@@ -75,7 +75,7 @@ After modifying, `reboot` to make the configuration take effect.
 
 ## Wireless Network
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557610&page=12" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KrlTudL0_JE?si=I9B8zN-pquC28-zf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The development board integrates a 2.4GHz wireless WiFi module, which supports Soft AP and Station modes, and runs in Station mode by default. The following introduces how to use the two modes.
 
@@ -249,7 +249,7 @@ By default, the development board's wireless network runs in Station mode. To us
 
 ## DNS Server
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557655&page=13" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YCNFSC7LpCY?si=nmnWJTcbtIQqDiWD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 DNS (Domain Name Server) is a server that converts domain names to their corresponding IP addresses.
 

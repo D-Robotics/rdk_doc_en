@@ -3,7 +3,8 @@ sidebar_position: 1
 ---
 # 3.1 GPIO Read/Write Operation Example
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557887&page=16" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TiuxZgGBuSM?si=Fu5bWfOOugeD_WL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 In the `/app/40pin_samples/` directory of the development board, there are various test codes for the functionalities of the 40-pin GPIO, including input/output testing, PWM, I2C, SPI, UART, etc. All the test programs are written in Python. For more detailed information, please refer to the [40PIN User Guide](../python_development/40pin_user_guide/40pin_define.md).
 

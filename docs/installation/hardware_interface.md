@@ -248,7 +248,7 @@ The development board's USB Host and Device functions are mutually exclusive. Wh
 
 ### Using a USB Flash Drive
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196553711&page=5" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xOepQzxnjCI?si=614SHwVLo5TH9cWy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The USB Type A interfaces (Interfaces 5 and 6) on the development board support USB flash drive functionality. They can automatically detect and mount USB flash drives. The default mount directory is `/media/sda1`. Users can use the `touch` command to confirm that the USB flash drive is working properly, as shown below:
 
@@ -288,7 +288,7 @@ The USB host and device functions on the development board are mutually exclusiv
 
 ## USB Camera
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196554247&page=6" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7xNgU1i2xsk?si=dpf03yRbqgaJtqB1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The development board's USB Type A interface supports USB camera functionality and can automatically detect the connection of a USB camera and create a device node `/dev/video8`. Users can use the `v4l2` command to confirm if the USB camera is working properly, as shown below:
 
@@ -361,7 +361,9 @@ Read buffers: 0
 
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196554333&page=7" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nabpS2CUkjY?si=jNZ6DNGTio852aIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The development board provides 1 MIPI CSI interface (Interface 2), which allows for the connection of MIPI cameras. Currently, the development board is compatible with multiple specifications of camera modules. The module models and specifications are as follows:
 
@@ -478,7 +480,7 @@ Hot-plugging the TF storage card is prohibited during the use of the development
 <Tabs groupId="rdk-type">
 <TabItem value="x3" label="RDK X3">
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557162&page=8" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/daliyPZNoLM?si=hszHz3WYvqX3qxRF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The development board supports both onboard and external antennas for wireless networking. In most cases, the onboard antenna can meet the user's needs. However, when the development board is installed with a metal casing, an external antenna needs to be connected to Interface 11 to enhance signal strength.
 
@@ -598,7 +600,7 @@ By default, the firmware of the core module of RDK X3 Module and the level confi
 
 ## Bluetooth
 
-<iframe src="//player.bilibili.com/player.html?aid=700903305&bvid=BV1rm4y1E73q&cid=1196557328&page=9" scrolling="no" border="0" frameborder="no" framespacing="0" width="100%" height="500" allowfullscreen="true"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ov8mL8P_yUY?si=Qh3JqKko1vbOvW7P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Initialization
 
