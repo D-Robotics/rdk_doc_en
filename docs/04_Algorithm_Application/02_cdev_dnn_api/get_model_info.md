@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 ---
-# Model Information Retrieval API
+# 4.2.3 Model Information Retrieval API
 
 ## hbDNNGetModelNameList()
 

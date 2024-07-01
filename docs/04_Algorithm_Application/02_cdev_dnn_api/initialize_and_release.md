@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# Model Load/Unload API
+# 4.2.2 Model Load/Unload API
 
 
 ## hbDNNInitializeFromFiles()

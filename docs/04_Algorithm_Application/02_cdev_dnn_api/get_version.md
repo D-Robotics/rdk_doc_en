@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# Model Inference Library Version Information Retrieval API
+# 4.2.1 Model Inference Library Version Information Retrieval API
 
 ## hbDNNGetVersion()
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# 3.2.2 How to use audio breakout board
+# 3.2.2 Audio Adapter Board On RDK X3 MD
 
 Currently, the RDK X3 Module supports  WM8960 Audio HAT. These boards are used to meet the functional requirements of different voice scenarios. The following will provide detailed instructions on how to use this audio board.
 

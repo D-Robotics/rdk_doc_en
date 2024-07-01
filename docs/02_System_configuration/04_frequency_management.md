@@ -1,7 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
-# 2.5 Thermal Control and CPU Frequency Management
+# 2.4 Thermal Control and CPU Frequency Management
 
 :::info Note
 The following information applies to the `RDK X3` and `RDK X3 Module` development boards and does not apply to the `RDK Ultra` development board.

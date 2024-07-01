@@ -1,7 +1,7 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 ---
-# Model Inference DEBUG Method
+# 4.2.9 Model Inference DEBUG Method
 
 ## Error Codes
 

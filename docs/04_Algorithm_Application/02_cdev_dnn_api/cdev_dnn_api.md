@@ -1,4 +1,8 @@
-# 5.4 Model Inference Interface Instructions
+---
+sidebar_position: 0
+---
+
+# Model Inference Interface Instructions
 
 :::tip Tips
 

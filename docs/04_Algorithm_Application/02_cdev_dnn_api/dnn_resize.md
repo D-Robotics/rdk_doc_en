@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 ---
-# Model Pre-processing API
+# 4.2.6 Model Pre-processing API
 
 ## hbDNNResize()
 

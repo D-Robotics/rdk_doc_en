@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 ---
-# Model Inference API
+# 4.2.4 Model Inference API
 
 
 ## hbDNNInfer()

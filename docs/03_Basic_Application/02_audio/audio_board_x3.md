@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# 3.2.1 Audio Adapter Board
+# 3.2.1 Audio Adapter Board On RDK X3
 
 The RDK X3 currently supports **WM8960 Audio HAT**. This board are designed to meet the functional requirements of different voice scenarios. The following will provide detailed instructions on how to use this audio board.
 
